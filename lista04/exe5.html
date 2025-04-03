@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe5</title>
+</head>
+<body>
+    <h1> <b>Algoritmolândia</b></h1>
+    <h1 style="color: yellow;"> Conta de luz</h1>
+    <br>
+    <br>
+    <h3>
+        Quantos KWh são consumidos no Mês:
+    </h3>
+    <input type="text" name="" id="inpt_KWh">
+    <button onclick="bt_kwh()">Calcular conta de luz</button>
+</body>
+</html>
+<script>
+    function bt_kwh(){
+        var num = Number(inpt_KWh.value)
+        var conta = num*0.85
+        var nova_conta = conta-(conta*0.1)
+        
+        if(conta >100) {
+            alert("O valor da sua conta é R$    "+conta)
+        }
+
+        if(conta <=100) {
+            alert("O valor da sua conta é R$"+nova_conta)
+        }}
+</script>
+
+

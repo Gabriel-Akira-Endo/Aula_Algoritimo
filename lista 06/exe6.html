@@ -1,0 +1,49 @@
+<!-- . Aprovação Escolar: Notas e Frequência Fazem a Diferença!
+Crie um programa o qual:  
+
+a) Pergunte uma nota de um aluno  
+
+b) Pergunte a frequência de um aluno  
+
+c) Ao clicar em "Avaliar aluno"...  
+
+d) Caso a nota for a partir de 6 e a frequência for a partir de 75, exibir um alert com
+ a frase "Parabéns! Aprovado!", caso contrário, exibir um alert com "Infelizmente, não foi desta vez"   
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Document</title>
+ </head>
+ <body>
+     Nota Aluno
+     <br>
+    Qual a sua Nota: <input type="text" id="id_temp">
+     <br>
+     Frequência: <input type="text" id="id_freq">
+     <br>
+     <button onclick="bt_cal()">Avaliar aluno</button>
+ </body>
+ </html>
+ 
+ <script>
+ 
+      function bt_cal(){
+         var nota = Number(id_temp.value)
+        var freq = Number(id_freq.value)
+
+         if( nota >6 && freq >=75){
+             alert(`Aluno Aprovado`)
+         }
+         else {
+             alert(`Aluno Reprovado`)
+         }
+      }
+ 
+ </script>
+ 
+ </body>
+ </html>

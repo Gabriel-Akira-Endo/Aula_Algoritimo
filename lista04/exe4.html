@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe4</title>
+</head>
+<body>
+    <h1>Pizza</h1>
+    <br><br>
+    <h2>Qual o valor da pizza?</h2>
+    <input type="text" id="input_valor">
+    <br><br>
+    <h2>Quantos amigos são?</h2>
+    <input type="text" id="input_amigos">
+    <br><br>
+    <button onclick="bt_pizza()">Rola a pizza?</button>
+    <div id="div_pizza"></div>
+
+</body>
+</html>
+<script>
+function bt_pizza() {
+var valor = Number(input_valor.value)  
+var amg = Number(input_amigos.value)
+var div = valor/amg
+div_pizza.innerHTML=`Cada amigo vai pagar R$${div} pela pizza`
+if (div>20) {
+    div_pizza.innerHTML+= `<BR> Deu ruim! Pizza muito cara!`
+}
+}
+</script>

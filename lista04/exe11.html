@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Crie um programa o qual:  
+
+    a) Solicite a quantidade de filhos que o usuário tem  
+    
+    b) Tenha um botão "Analisar família". Ao clicar nele...  
+    
+    c) Caso tenha 1 ou mais filhos, exiba na tela, abaixo do botão, a frase "Não tem TV" 
+    
+    d) Caso tenha 2 ou mais filhos, exiba na tela, abaixo da frase em c), a frase "Não tem internet" 
+    
+    e) Caso tenha 3 ou mais filhos, exiba na tela, abaixo da frase em d), a frase "Não tem video game" 
+    
+    f) Caso tenha 4 ou mais filhos, exiba na tela, abaixo da frase em e), a frase "Não tem Netflix" 
+    
+        OBS: Ou seja, caso o usuário informe que tenha, por exemplo,  4 ou mais filhos, devem aparecer as seguintes frases:  
+    
+              Não tem TV  
+    
+              Não tem internet  
+    
+              Não tem video game  
+    
+              Não tem Netflix  
+    
+        Se tiver 2 filhos, deve exibir apenas "Não tem TV" e "Não tem internet", de acordo com as validações descritas acima. -->
+
+        Quantos Filhos você tem:
+        <br><input type="text" id="qtd_filho">
+        <br>
+        <button onclick="analise()"> Analisar Família</button>
+        <div id="div_filho"></div>
+</body>
+</html>
+<Script>
+    function analise() {
+        var qtd = Number(qtd_filho.value)
+
+        if (qtd >= 1){
+            div_filho.innerHTML=`<br>Não tem TV`
+        }
+        if (qtd >= 2){
+            div_filho.innerHTML+=`<br>Não tem internet`
+        }
+        if (qtd >= 3){
+            div_filho.innerHTML+=`<br>Não tem video game`
+        }
+        if (qtd >= 4){
+            div_filho.innerHTML+=`<br>Não tem Netflix`
+        }
+}
+</Script>

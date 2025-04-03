@@ -1,0 +1,63 @@
+<!-- Uma nutricionista precisa ajudar seus pacientes em com suas dietas. Ajude-a criando um programa o qual: 
+
+a) Pergunte quantos pães franceses o usuário tem comido por dia; 
+
+b) Pergunte quantos pacotes de bolacha recheada o usuário tem comido por dia; 
+
+c) Pergunte quantos copos de achocolatado o usuário tem tomado por dia; 
+
+d) Ao clicar em "Verificar calorias", calcule quantas calorias o usuário tem consumido com base nas 3 informações. Considere que um pão francês tem 50 calorias, um pacote de bolacha, 80 e um copo de achocolatado, 70. 
+
+e) Após fazer o cálculo, exiba uma dessas frases, abaixo do botão: 
+
+   "Parabéns, vai ficar em forma!", caso as calorias sejam menores do que 200. 
+
+   "Cuidado, vai ficar menos saudável !" caso as calorias sejam entre 200 e 400. 
+
+   "Alerta crítico de saúde !!!", caso as calorias sejam mais de 400.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h2>Quantos pães franceses o usuário tem comido por dia:</h2>
+ <br><input type="text" id="ipt_pao">
+ <br>
+ <h2>Quantos pacotes de bolacha recheada o usuário tem comido por dia:</h2>
+ <br><input type="text" id="ipt_bol">
+ <br>
+ <h2>Quantos copos de achocolatado o usuário tem tomado por dia:</h2>
+ <br><input type="text" id="ipt_acho">
+ <br>
+ <button onclick="bt()">verificar  calorias</button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var pao = Number(ipt_pao.value)
+     var bolacha = Number(ipt_bol.value)
+     var achocolatado = Number(ipt_acho.value)
+
+     var pao_cal = pao * 50
+     var bol_cal = bolacha*80
+     var acho_cal = achocolatado*70
+
+    var totalcal = pao_cal+bol_cal+acho_cal
+
+
+     if(totalcal <200){
+         div_alt.innerHTML="Parabéns, vai ficar em forma!"
+     }
+     else if (totalcal<=400){
+         div_alt.innerHTML= "Cuidado, vai ficar menos saudável !"
+     }
+     else{
+         div_alt.innerHTML="Alerta crítico de saúde !!!"
+     }
+ }
+</script>

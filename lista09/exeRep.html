@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="bt()">Contar</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    function bt(){
+        var contador =0;
+
+        while(contador  > 10){
+            contador++;
+            div_geral.innerHTML+=`${contador}<br>`;
+        }
+        div_geral.innerHTML+=`Contagem Finalizada`
+    }
+</script>

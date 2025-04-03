@@ -1,0 +1,41 @@
+<!-- 1. Conforto Térmico: A Temperatura Está Ideal? 
+Crie um programa o qual:  
+
+a) Pergunte a temperatura atual  
+
+b) Ao clicar em "Ver situação"...  
+
+c) Caso a temperatura seja entre 21 e 24, exibir um alert com a frase "Temperatura confortável :D"  
+
+d) Caso a temperatura não estiver no intervalo definido em c), exibir um alert com a frase "Temperatura DESCONFORTÁVEL :C"  
+
+  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Temperatura atual: <input type="text" id="id_temp">
+    <br>
+    <button onclick="bt_cal()">Ver situação</button>
+</body>
+</html>
+
+<script>
+
+     function bt_cal(){
+        var temperatura = Number(id_temp.value)
+
+        
+        if (temperatura >= 21 && temperatura <=24){
+            alert("Temperatura confortável")
+            }
+        else{
+        alert("Temperatura desconfortável")
+        }
+     }
+
+</script>

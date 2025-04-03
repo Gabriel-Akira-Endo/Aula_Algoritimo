@@ -1,0 +1,132 @@
+<!-- CONTEXTO: 
+
+Em um país chamado Algoritmolândia, Jorge sempre trabalhou informalmente como freelancer, 
+até que começou a trabalhar em uma empresa que atua na área de TI, que lhe contratou com carteira assinada em regime CLT, através das legislações trabalhistas desse país.
+
+Quando recebeu seu primeiro salário, Jorge ficou assustado por ter recebido menos dinheiro do que esperava.
+
+Foi então que descobriu que quando um funcionário possui vínculo empregatício com regime CLT, existem diversos descontos que são aplicados sobre o salário, sendo eles tributos federais e estaduais. 
+
+Para ajudar Jorge a entender melhor como funcionam os cálculos dos encargos envolvidos em seu salário e nos tributos aplicados, crie um programa que:  
+
+
+a) Solicite o valor do salário, do adicional mensal e do bônus do usuário. 
+
+
+b) Ao clicar no botão " Analisar Minha Renda", calcule o salário bruto do usuário somando as entradas em a), então;
+
+
+   b1) Somente caso o usuário possua um salário bruto igual ou maior que R$10000, calcule e aplique o desconto de IR (imposto de renda), que é 12.5% do valor do bruto.
+
+
+   b2) Calcule o valor do desconto de INSS (previdência), que é 10% do valor do salário bruto após a verificação do desconto de IR do item b1). 
+
+
+   b3) Calcule o valor do desconto de FGTS (Fundo de Garantia do Tempo de Serviço), que é 8% do valor do salário bruto após a verificação do desconto de IR do item b1).
+
+
+   b4) Calcule o valor do salário líquido do usuário, que é o salário bruto menos os descontos aplicados
+
+
+   b5) Em seguida, exiba uma mensagem abaixo do botão, realizando a análise da renda do usuário:  
+
+            ANÁLISE DA SUA RENDA 
+
+            Com o salário de R$AAAA, com adicional de R$BBBB e bônus de R$CCCC, você tem: 
+
+            Bruto: R$DDDD  
+
+            IR: R$EEEE  
+
+            INSS: R$FFFF  
+
+            FGTS: R$GGGG 
+
+            Líquido: R$HHHH“ 
+
+   Sendo "AAAA" a entrada do salário inicial do usuário, "BBBB" a entrada do adicional, "CCCC" a entrada do bônus, "DDDD" o salário bruto, "EEEE" o desconto do IR, "FFFF" o desconto do INSS, "GGGG" o desconto do FGTS e "HHHH" o valor do salário líquido final do usuário. 
+
+
+c) Após exibir a análise dos descontos, faça:
+
+
+   c1) Somente caso o valor do salário líquido seja maior que R$2500, exiba abaixo do texto do item b5) a seguinte mensagem:   
+
+          Com a renda de R$AAAA, é recomendado poupar R$BBBB, para que em um ano tenha poupado R$CCCC" 
+
+    Sendo "AAAA" o salário líquido do usuário, "BBBB" o valor de 15% do salário líquido e "CCCC" quanto o usuário terá se armazenar 15% por 1 ano. 
+
+
+   c2) Somente caso o valor do salário líquido seja até R$2500, exiba abaixo do texto do item b5) a seguinte mensagem:   
+
+            Com a renda de R$AAAA, é recomendado obter renda extra para realizar uma poupança." 
+
+            Sendo "AAAA" o salário líquido do usuário. 
+
+OBS: Exiba as mensagens de modo mais parecido com a estrutura destacada em vermelho, mas NÃO PRECISA COLOCAR COR NA MENSAGEM! Essa estilização vermelha é somente para destacar a mensagem completa para vocês.  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmolândia</title>
+</head>
+<body>
+    
+    <h1> Algoritmolândia</h1>
+    <br>
+    <p>Salário: <input type="text"  id="id_salario"></p>
+    <p>Adicional: <input type="text"  id="id_add"></p>
+    <p>Bônus: <input type="text" id="id_bonus"> </p>
+    <p>	<button onclick="bt()">Analisar Minha Renda</button></p>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    function bt(){
+        var salario = Number(id_salario.value)
+        var adicional = Number(id_add.value)
+        var bonus = Number(id_bonus.value)  
+        var bruto = salario+adicional+bonus
+        var grana = 0 
+
+        if (bruto >= 10000){
+            var IR = bruto*0.125
+            grana = bruto*0.875
+            var INSS = grana*0.1
+            var FGTS = grana *0.08
+            grana = grana-INSS-FGTS
+        }
+        else if (bruto<10000){
+            var IR = 0
+            grana = bruto
+            var INSS = grana*0.1
+            var FGTS = grana *0.08
+            grana = grana-INSS-FGTS
+            
+        }
+
+        div_geral.innerHTML=`
+        <p>ANÁLISE DA SUA RENDA </p>
+
+           <p> Com o salário de R$${salario}, com adicional de R$${adicional} e bônus de R$${bonus}, você tem: </p>
+
+                <p> Bruto: R$${bruto} </p>
+
+                <p>  IR: R$${IR}   </p>
+
+                <p>  INSS: R$${INSS}   </p>
+
+                <p> FGTS: R$${FGTS}  </p>
+
+                <p>  Líquido: R$${grana}  </p>
+    `
+    if(grana>=2500  ){
+        div_geral.innerHTML+=`Com a renda de R$${grana}, é recomendado poupar R$${grana*0.15}, para que em um ano tenha poupado R$${12*(grana*0.15)}`
+    }
+    else{
+        div_geral.innerHTML+=`Com a renda de R$${grana}, é recomendado obter renda extra para realizar uma poupança.`
+    }
+
+}
+</script>

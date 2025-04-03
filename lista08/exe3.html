@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Bilhete Unico</h1>
+    <br>
+    <p>Qual o tipo de passageiro: <select id="select_tipo">
+        <option value="Comum">Comum</option>
+        <option value="Estudante">Estudante</option>
+        <option value="Idoso">Idoso/PNE</option>
+    </select></p>
+    <p>Qual o tipo de passageiro: <select id="select_passagem">
+        <option value="Unica">Passagem unica</option>
+        <option value="Integrado">Passagem integração</option>
+    </select></p>
+    <button onclick="bt()">Verificar</button>
+    <div id="div_geral"> valor da passagem:R$</div>
+</body>
+</html>
+<script>
+    function bt() {
+        pessoa = select_tipo.value
+        passagem = select_passagem.value
+
+        if(pessoa == "Estudante"){
+            if(passagem == "Unica")
+            {
+                div_geral.innerHTML="valor da passagem:R$2,20"
+            
+        }
+            else{
+            div_geral.innerHTML  ="valor da passagem:R$2,95"
+
+        }
+
+        }
+        else if(pessoa == "Idoso"){
+            div_geral.innerHTML ="valor da passagem:R$0,00"
+        }
+        else {
+            if(passagem == "Unica")
+        {
+            div_geral.innerHTML ="valor da passagem:R$4,40"
+        }
+            else{
+            div_geral.innerHTML ="valor da passagem:R$5,90"    
+        }
+        }
+     }
+</script>

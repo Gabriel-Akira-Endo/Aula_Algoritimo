@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+Sera que Robervaldo Gostaria?
+<br>
+<p>Qual o tamanho da tela: <input type="text" id="id_tamanho"></p>
+<p>Qual o tamanho da tela: <select type="text" id="id_cor">
+            <option value="Preto">Preto</option>    
+            <option value="Azul">Azul</option>    
+            <option value="Prata">Prata</option>    
+            <option value="Vermelho">Vermelho</option>    
+</select>
+<p><button onclick="bt()">Será que ele gosta?</button></p>
+</p>
+<div id="div_geral"></div>
+<!--     
+    Simulador de Preferências de Compras: Será que Robervaldo Gostaria?
+Imagine que Robervaldo está buscando um novo celular. Ele tem algumas preferências específicas para a escolha de modelo.
+
+Robervaldo prefere celulares com tela grande (acima de 6.5 polegadas) e que sejam da cor preta ou prata.
+
+Com base nessas informações, crie um simulador no qual:
+
+a) Solicite o tamanho da tela do celular encontrado.
+
+b) Solicite a cor do celular encontrado, dentre as opções:
+
+Preto
+Prata
+Azul
+Vermelho
+c) Ao clicar em "Será que ele gosta?", mostre, abaixo:
+
+A imagem de uma pessoa feliz, caso as características do celular coincidam com as preferências de Robervaldo.
+Ou a imagem de uma pessoa decepcionada, caso contrário.   -->
+
+</body>
+</html>
+<script>
+    function bt(){
+        tamanho = Number(id_tamanho.value)
+        cor = id_cor.value
+        
+        if( tamanho >=6.5 &&(cor == "Preto" ||cor == "Prata")){
+            div_geral.innerHTML='<img src="https://img.freepik.com/vetores-premium/emoji-com-um-grande-sorriso-dando-dois-polegares-para-cima_1303870-220.jpg?semt=ais_hybrid">'
+        }
+        else{
+            div_geral.innerHTML='<img src="https://img.freepik.com/vetores-premium/emoticon-triste_1303870-82.jpg?semt=ais_hybrid">'
+        }
+    }
+</script>

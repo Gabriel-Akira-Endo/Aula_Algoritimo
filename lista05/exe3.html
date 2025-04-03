@@ -1,0 +1,52 @@
+<!-- Para o ser humano, a temperatura é... 
+
+Congelante (até menos de 14ºC) 
+
+Com Frio (entre 14ºC e 21ºC) 
+
+Confortável (mais de 21ºC até 24ºC) 
+
+Com Calor (mais de 24ºC até 31ºC) 
+
+Calor escaldante (mais de 31ºC) 
+
+Crie um programa que, ao ler uma temperatura, exiba uma dessas situações acima. 
+
+  -->
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+  </head>
+  <body>
+   <h2>Qual a temperatura:</h2>
+   <br><input type="text" id="ipt_alt">
+   <br>
+   <button onclick="bt()">analisar temperatura </button>
+   <div id="div_alt"></div>
+
+  </body>
+  </html>
+  <script>
+   function bt(){
+       var altura = Number(ipt_alt.value)
+
+       if(altura<14){
+           div_alt.innerHTML="Congelante"
+       }
+       else if (altura<=21){
+           div_alt.innerHTML= "Com Frio"
+       }
+       else if (altura<=24){
+           div_alt.innerHTML= "Confortável"
+       }
+       else if (altura<=31){
+           div_alt.innerHTML= "Com Calor"
+       }
+       else{
+           div_alt.innerHTML="Calor escaldante"
+       }
+   }
+  </script>

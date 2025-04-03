@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe8</title>
+</head>
+<body>
+    <h1>  Banco XPTO </h1>
+    <br><br>
+    Qual o seu saldo na conta: 
+    <br>
+    <input type="text" id="saldo_input">
+    <br>
+    Qual o valor a ser tirado da conta:
+    <br>
+    <input type="text" id="ipt_deb">
+    <br>
+    <button onclick="bt_analise()">Analisar Conta
+    </button>
+    <div id="div_analise"></div>
+    </body>
+</html>
+<script>
+    function bt_analise(){
+        var saldo = Number(saldo_input.value)
+        var debita = Number(ipt_deb.value)
+        var ctFinal = saldo-debita
+
+        if (ctFinal >0){
+            div_analise.innerHTML =`<i style="color:blue">O saldo atual da conta corrente é R$${ctFinal}</i>`
+        }
+        else{
+             div_analise.innerHTML =`<b style="color:red">O saldo atual da conta corrente é R$${ctFinal}</b>`
+        }
+ }
+</script>

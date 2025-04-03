@@ -1,0 +1,57 @@
+<!-- Crie um programa que avalie se um motorista ultrapassou o limite de velocidade.
+
+a) Pergunte ao usuário a velocidade que ele estava dirigindo (km/h).
+b) Pergunte qual é o limite de velocidade da via (km/h).
+c) Ao clicar em "Verificar", exiba uma das mensagens abaixo:
+
+"Velocidade dentro do limite. Boa direção!", caso a velocidade seja menor ou igual ao limite.
+"Atenção! Excedendo o limite permitido.", caso a velocidade esteja até 20% acima do limite.
+"Multa grave! Velocidade muito acima do permitido.", caso esteja mais de 20% acima do limite.
+11. Crie um programa que enviará um alerta de acordo com a umidade do ambiente, buscando evitar problemas respiratórios devido à falta de umidade relativa do ar.
+
+a) Pergunte a umidade atual do ambiente.
+b) Ao clicar em "Verificar umidade": 
+
+    b1) Valide se o valor informado está entre 0 e 100% e exiba um alerta de erro caso esteja fora desse intervalo.
+
+    b2) Caso o valor informado esteja dentro do intervalo, exiba a mensagem adequada:
+
+"Estado de Emergencia" (abaixo de 12%)
+"Estado de alerta" (entre 12% e 20%)
+"Estado de atenção" (acima de 20% até 30%)
+"Nenhum risco" (acima de 30%) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+
+Qual a velocidade que ele estava dirigindo (km/h).
+<br><input type="text" id="ipt_vel"><br>
+Qual é o limite de velocidade da via (km/h).
+<br><input type="text" id="ipt_limite"><br>
+ <button onclick="bt()">Verificar </button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var meta = Number(ipt_vel.value)
+     var guardado = Number(ipt_limite.value)
+
+     if(meta <= guardado ){
+         div_alt.innerHTML="Velocidade dentro do limite. Boa direção!"
+     }
+     else if (meta <= (guardado*1.2)){
+         div_alt.innerHTML= `Atenção! Excedendo o limite permitido`
+        }
+    else {
+                 div_alt.innerHTML=` Multa grave! Velocidade muito acima do permitido.Atenção!`
+    }
+ }
+</script>

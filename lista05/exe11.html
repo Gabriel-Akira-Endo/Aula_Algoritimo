@@ -1,0 +1,57 @@
+<!-- Crie um programa que enviará um alerta de acordo com a umidade do ambiente, buscando evitar problemas respiratórios devido à falta de umidade relativa do ar.
+
+a) Pergunte a umidade atual do ambiente.
+b) Ao clicar em "Verificar umidade": 
+
+    b1) Valide se o valor informado está entre 0 e 100% e exiba um alerta de erro caso esteja fora desse intervalo.
+
+    b2) Caso o valor informado esteja dentro do intervalo, exiba a mensagem adequada:
+
+"Estado de Emergencia" (abaixo de 12%)
+"Estado de alerta" (entre 12% e 20%)
+"Estado de atenção" (acima de 20% até 30%)
+"Nenhum risco" (acima de 30%) Estado de Emergencia-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+
+Qual a umidade atual.
+<br><input type="text" id="ipt_vel"><br>
+ <button onclick="bt()">Verificar Umidade </button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var meta = Number(ipt_vel.value)
+     
+     if(meta<=100){
+        if (meta>=0){
+        if(meta <12){
+         div_alt.innerHTML="Estado de Emergencia"
+     }
+     else if (meta <20){
+         div_alt.innerHTML= `Estado de alerta`
+        }
+        else if (meta < 30){
+         div_alt.innerHTML= `Estado de atenção`
+        }
+        else {
+         div_alt.innerHTML= `Nenhum risco`}
+        }
+        else {
+        alert("ERRO ")
+    }
+        }
+    else {
+        alert("ERRO ")
+    }
+ }
+</script>

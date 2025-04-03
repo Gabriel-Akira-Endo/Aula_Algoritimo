@@ -1,0 +1,64 @@
+<!-- Analisador de Compra: Escolhendo a Melhor TV Dentro do Orçamento
+George Quisito está pesquisando por uma nova TV de 40" porque suspeita que o governador de seu estado irá prorrogar a quarentena por mais 1 mês e sua TV atual é de 22" apenas. Porém, ele é desconfiado com preços muito baixos e, claro, possui um teto, um limite máximo que está disposto a pagar. Assim, crie para ele um programa o qual: 
+
+a) Solicite a marca da TV (dentre as opções "Samsung", "LG", "Mondial" e "Britânia") 
+
+b) Solicite o preço da TV 
+
+c) Ao clicar em "Analisar compra", podem aparecer as seguintes mensagens na tela: 
+
+   c.1) "TV fora da faixa de preço", caso a TV custar menos que 800 ou mais que 2000  
+
+   c.2) "Na faixa de preço, porém marca não confiável", caso esteja na faixa entre 800 e 2000, porém for da "Mondial" ou "Britânia"  
+
+   c.3) Caso tenha exibido a mensagem de c.1), exiba também essa outra frase, caso custar menos de 800: "Preço baixo demais!". Ou, caso custar mais de 2000, exiba esta: "TV cara demais, infelizmente" 
+
+   c.4) Caso a TV esteja na faixa de preço e for da "LG" ou "Samsung", exiba "Essa TV pode entrar na sua lista!"  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+     TV 
+    <br>
+     Qual marca da TV (dentre as opções Samsung, LG, Mondial e Britânia):<input type="text" id="id_tv">
+    <br>
+     Qual o valor da TV<input type="text" id="id_valor">
+    <br>
+    <button onclick="bt()">Analisar Compra</button>
+
+    <div id="div_geral"></div>
+</body>
+</html>
+
+<script>
+    function bt(){
+        var valor = id_valor.value
+        var tv = id_tv.value
+
+        if(valor > 800 && valor<2000){
+        div_geral.innerHTML= "TV fora da faixa de preço"
+        if(tv == "Mondial" || tv =="Britânia"){
+            div_geral.innerHTML="Na faixa de preço, porém marca não confiável"
+        }
+        else if (tv == "Samsung" || tv =="LG"){
+            div_geral.innerHTML ="Essa TV pode entrar na sua lista!"
+        }
+    
+    }
+    else{
+        div_geral.innerHTML= "TV fora da faixa de preço"
+        if (valor < 800){
+            div_geral.innerHTML+= "<br>Preço baixo demais!"
+        }
+        else{
+           div_geral.innerHTML+= "<br>TV cara demais, infelizmente"
+        }
+
+    }
+}
+</script>

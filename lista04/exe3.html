@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fora de série</h1>
+    <br>
+    <h2>Qual foi sua primeira nota</h2>
+    <input type="text" id="nt1">
+    <br>
+    <h2>Qual foi sua segunda nota</h2>
+    <input type="text" id="nt2">
+    <br>
+    <h2>Qual foi sua terceira nota</h2>
+    <input type="text" id="nt3">
+    <br>
+    <button onclick="analise()">analise desempenho</button>
+    <div id="div_analise"></div>
+</body>
+</html>
+<script>
+    function analise(){
+        var n1 = Number(nt1.value)
+        var n2 = Number(nt2.value)
+        var n3 = Number(nt3.value)
+        var  med = (n1+n2+n3)/3
+        div_analise.innerHTML= `Sua média foi de ${med}`;
+
+        if (med >=9.4){
+            div_analise.innerHTML += `<br>
+            Parabéns, você é fora de série!`;
+        }
+    }
+</script>

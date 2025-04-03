@@ -1,0 +1,48 @@
+<!-- 
+Crie um programa o qual: 
+a) Pergunte qual dos seguintes times de São Paulo o usuário torce (São Paulo, Palmeiras, Corinthians, Santos); 
+b) Ao clicar em "Fale sobre esse time", exiba abaixo: 
+
+   "Salve o Corinthians" -> com fundo preto e letra branca, se for Corinthians 
+   "Salve o alviverde imponente" -> com fundo verde e letra branca, se for Palmeiras 
+   "Agora quem dá a bola é o Santos" -> com fundo branco e letra preta, se for Santos 
+   "Salve o Tricolor paulista" -> com fundo preto e letra vermelha, se for São Paulo -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+
+ <h2> Qual dos seguintes times de São Paulo o usuário torce (São Paulo, Palmeiras, Corinthians, Santos)?</h2>
+ <br><input type="text" id="ipt_alt">
+ <br>
+ <button onclick="bt()">fale sobre esse time</button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var time =ipt_alt.value
+
+     if(time == "Corinthians"){
+         div_alt.innerHTML=    `<p style="color: white; background-color: black;">Salve o Corinthians</p>`
+     }
+     else if (time =="Palmeiras"){
+         div_alt.innerHTML= `<p style="color: white; background-color: green;">Salve o Alviverde imponente</p>`
+     }
+     else if (time == "Santos"){
+         div_alt.innerHTML= `<p>Quem dá a bola é o Santos</p>`
+     }
+     else if (time == "São Paulo"){
+         div_alt.innerHTML=`<p style="color: red; background-color: black;">Salve o Tricolor Paulista</p>`
+     }
+     else {
+         div_alt.innerHTML="Informe um time paulista"
+     }
+ }
+</script>

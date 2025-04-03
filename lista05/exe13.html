@@ -1,0 +1,47 @@
+<!-- 
+Crie um programa que ajude o usuário a escolher um Pokémon inicial e exiba a imagem correspondente.
+
+a) Pergunte ao usuário qual Pokémon inicial ele escolheria entre Bulbasaur, Charmander ou Squirtle.
+b) Ao clicar no botão "Escolher Pokémon", exiba a imagem do Pokémon escolhido abaixo do botão:
+
+Bulbasaur → Exibir imagem do Bulbasaur
+Charmander → Exibir imagem do Charmander
+Squirtle → Exibir imagem do Squirtle
+Se o usuário inserir um nome inválido, exibir uma mensagem "Pokémon não reconhecido." -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+    <img src="https://c4.wallpaperflare.com/wallpaper/436/677/92/pokemon-squirtle-bulbasaur-charmander-wallpaper-preview.jpg">
+    <br>
+Qual Pokémon inicial você escolheria entre Bulbasaur, Charmander ou Squirtle.
+<br><input type="text" id="ipt_vel"><br>
+ <button onclick="bt()">Escolher Pokémon</button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var meta = ipt_vel.value
+
+     if(meta == "Bulbasaur" ){
+         div_alt.innerHTML=`<img src="https://c4.wallpaperflare.com/wallpaper/544/136/10/bulbasaur-wallpaper-preview.jpg"> `
+     }
+    else if (meta == "Charmander"){
+         div_alt.innerHTML=`<img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/c8ddb580-98ef-49ff-b045-c8ae82efe46c/df2q7rq-7b837b79-66ad-44a2-95d7-05d33f74e6f9.jpg/v1/fill/w_1920,h_1048,q_75,strp/charmander_wallpaper_by_alivefaun2_df2q7rq-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9MTA0OCIsInBhdGgiOiJcL2ZcL2M4ZGRiNTgwLTk4ZWYtNDlmZi1iMDQ1LWM4YWU4MmVmZTQ2Y1wvZGYycTdycS03YjgzN2I3OS02NmFkLTQ0YTItOTVkNy0wNWQzM2Y3NGU2ZjkuanBnIiwid2lkdGgiOiI8PTE5MjAifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6aW1hZ2Uub3BlcmF0aW9ucyJdfQ.RrJWLvqxjXoiSOjutoRbC1QW6xhSbl6Qc-lvxIznRWY"> `
+        }
+    else if (meta == "Squirtle"){
+         div_alt.innerHTML=`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRRjfL0cQMiW-05IZp0nbi5Zyi-tsD-mOFXBA&s"> `
+        }
+    else {
+         div_alt.innerHTML=`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN20HXoez6LZIvAf8RL3_K9EBv4e2sksCHjA&s"> <br> Pokémon não reconhecido ou inexistente`
+        }
+
+ }
+</script>

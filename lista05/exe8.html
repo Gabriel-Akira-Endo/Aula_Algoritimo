@@ -1,0 +1,47 @@
+<!-- a) Pergunte ao usuário qual sua meta de economia;
+
+b) Pergunte ao usuário quanto tem guardado;
+
+c) Ao clicar em "Analisar economia"...
+
+d) Caso a meta tenha sido alcançada, exibir, abaixo do botão, a frase “Parabéns, meta alcançada!”.
+
+e) Caso a meta tenha sido ultrapassada, exibir a frase anterior e também a frase “Meta ultrapassada em X” (onde X é a diferença entre a economia e a meta)
+
+f) Caso a meta ainda não tenha sido alcançada, exibir, abaixo do botão, a frase “Força! Ainda em busca da meta! Falta X” (onde X é a diferença entre a meta e a economia) -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h2>Qual a sua meta:</h2>
+ <br><input type="text" id="ipt_meta">
+ <br>
+ <h2>Quanto você tem guardado:</h2>
+ <br><input type="text" id="ipt_guard">
+ <br>
+ <button onclick="bt()">analisar economia </button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var meta = Number(ipt_meta.value)
+     var guardado = Number(ipt_guard.value)
+
+     if(meta == guardado ){
+         div_alt.innerHTML="Parabéns, meta alcançada"
+     }
+     else if (guardado > meta){
+         div_alt.innerHTML= `Meta ultrapssada em ${guardado-meta}`
+     }
+     else {
+         div_alt.innerHTML= `Força! Ainda em busca da meta! Falta ${meta-guardado}`
+     }
+ }
+</script>

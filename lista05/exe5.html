@@ -1,0 +1,45 @@
+<!-- Crie um programa o qual:
+
+a) Solicite a nota do aluno;
+
+b) Ao clicar em "Classificar aluno", exiba uma dessas mensagens em um alert:
+
+      "Aluno precisa de muita ajuda", caso a nota for menor que 5.
+      "Aluno na média", caso a nota for entre 5 até 7.
+      "Aluno na acima da média", caso a nota for maior que 7 até 9.5.
+      "Aluno fora da curva", caso a nota for maior que 9.5. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+ <h2>Qual a sua nota:</h2>
+ <br><input type="text" id="ipt_alt">
+ <br>
+ <button onclick="bt()">Classificar nota</button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var nota = Number(ipt_alt.value)
+
+     if(nota<5){
+         div_alt.innerHTML="Aluno precisa de muita ajuda"
+     }
+     else if (nota<=7){
+         div_alt.innerHTML= "Aluno na média"
+     }
+     else if (nota<=9.5){
+         div_alt.innerHTML= "Aluno acima da média"
+     }
+     else{
+         div_alt.innerHTML="Aluno fora da curva"
+     }
+ }
+</script>

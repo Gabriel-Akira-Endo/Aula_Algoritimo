@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>JOCA</h1>
+<h2>Quantas latinhas são consumidas por dia:</h2>
+<input type="text" id="qtd_d">
+<button onclick="refri()">Quantos refri?</button>
+<div id="div_refri"></div>
+</body>
+</html>
+<script>
+
+function refri(){
+    var num = Number(qtd_d.value)
+     var num1 = num*365
+ div_refri.innerHTML=`Você consome ${num1} latinhas por ano` 
+if(num1 >500) div_refri.innerHTML += `
+<br>
+Cuidado com a diabetes!`;
+}
+
+</script>

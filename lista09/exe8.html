@@ -1,0 +1,39 @@
+<!-- Crie um programa o qual:
+ 
+a) Pergunte ao usuário um número;  
+
+b) Pergunte ao usuário uma frase.  
+
+c) Ao clicar num botão "Papagaio", a frase é exibida N vezes em N alerts, onde N é o número informado em a)    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Diga um numero: <input type="text" id="id_num"></p>
+    <p>Diga a frase que será repetida: <input type="text" id="id_frase"></p>
+    <button onclick="bt()">Papagaio</button>
+</body>
+</html>
+<script>
+function bt(){
+    var contador = 0
+    var numero = Number(id_num.value)
+    var frase = id_frase.value
+    var msg = ""
+     
+    while(contador <numero ){
+        contador++,
+        msg+=`${frase} \n`
+     }
+     var contador = 0
+     while (contador<numero){
+        contador++;
+        alert(msg); 
+    }
+}
+</script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe17</title>
+</head>
+<body>
+    
+<!-- 17. Crie um programa o qual: 
+
+a) Solicita a frequência do aluno 
+
+b) Ao clicar em "Analisar frequência", deve aparecer, abaixo dele: 
+
+    A imagem de um turista, caso a frequência for menor que 50 OU 
+
+    A imagem de um aluno estudioso, caso a frequência for a partir de 50  -->
+    frequência
+    <br>
+    Qual a  sua frequência :
+    <br><input type="text" id="ipt_freq">
+    <br><button onclick="bt_freq()">Analisar frequência</button> 
+    <br><div id="div_freq"></div>
+</body>
+</html>
+<script>
+    function bt_freq() {
+        var freq = Number(ipt_freq.value)
+
+        if(freq>50){
+            div_freq.innerHTML=`
+            <img src="https://revistamegaverso.com.br/wp-content/uploads/2024/10/Kiyotaka-Ayanokoji.webp" width="320" height="205" alt="Minha Figura"> `
+        }
+        else{
+            div_freq.innerHTML=`<img src="https://i1.wp.com/guiadoanime.com.br/wp-content/uploads/2023/11/One-Piece-todas-as-Katanas-nomeadas-de-Zoro-explicadas.jpg" width="320" height="205">`
+        }
+    }
+</script>

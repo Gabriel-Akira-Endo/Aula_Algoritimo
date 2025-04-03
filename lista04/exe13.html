@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>exe13</title>
+</head>
+<body>
+    <!-- . Crie um programa o qual:  
+
+a) Solicite 2 notas de um aluno  
+
+b) Ao clicar em "Verificar situação", calcule sua média e...  
+
+c) Caso a média seja a partir de 6, exiba um alert com "Parabéns, aprovado!"  
+
+d) Caso a média seja menor que 6, exiba um alert com "Tente outra vez..."   -->
+
+Média 
+<br>
+Qual sua 1º nota:
+<br><input type="text" id="ipt_n1">
+<br>
+Qual a sua 2º nota:
+<br><input type="text" id="ipt_n2">
+<br>
+<button onclick="verificar()">Verificar situação</button>
+<div id="div_media"></div>
+</body>
+</html>
+<script>
+    function verificar(){
+        var n1 =Number(ipt_n1.value)
+        var n2 =Number(ipt_n2.value)
+        var med = (n1+n2)/2
+
+        if (med>=6){
+            alert("Parabéns, aprovado")
+        }
+        else   {
+            alert("Tente outra vez")
+        
+        }
+    }
+</script>

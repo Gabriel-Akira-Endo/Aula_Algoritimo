@@ -1,0 +1,47 @@
+<!-- Crie um programa que ajude a exibir uma imagem representando o humor do usuário, conforme a escolha feita.
+
+a) Solicite ao usuário que selecione como ele está se sentindo hoje (Opções: "Feliz", "Triste", "Bravo", "Surpreso", "Cansado").
+b) Ao clicar no botão "Mostrar Humor", exiba uma imagem correspondente abaixo do botão:
+
+"Feliz" → Exibir imagem de um emoji sorridente 😊
+"Triste" → Exibir imagem de um emoji chorando 😢
+"Bravo" → Exibir imagem de um emoji irritado 😡
+"Surpreso" → Exibir imagem de um emoji surpreso 😲
+"Cansado" → Exibir imagem de um emoji sonolento 😴 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+</head>
+<body>
+Como você está se sentindo hoje (Opções: "Feliz", "Triste", "Bravo", "Surpreso", "Cansado").
+<br><input type="text" id="ipt_vel"><br>
+ <button onclick="bt()">Mostrar humor</button>
+ <div id="div_alt"></div>
+
+</body>
+</html>
+<script>
+ function bt(){
+     var meta = ipt_vel.value
+
+     if(meta == "Feliz" ){
+         div_alt.innerHTML=`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSy5VP2kHhF2Wp7SsOHybIPftS6l5s4acFVnw&s"> `
+     }
+    else if (meta == "Triste"){
+         div_alt.innerHTML=`<img src="https://img.nsctotal.com.br/wp-content/uploads/2024/03/A-Tristeza-e-representada-por-cores-frias-como-o-azul-e-sempre-aparece-cabisbaixa.-Foto-Reproducao.jpg"> `
+        }
+    else if (meta == "Bravo"){
+         div_alt.innerHTML=`<img src="https://s2-crescer.glbimg.com/8cABtJ9h9K0PCX28TjQZpH0FUd8=/0x0:1080x1350/600x0/smart/filters:gifv():strip_icc()/i.s3.glbimg.com/v1/AUTH_19863d4200d245c3a2ff5b383f548bb6/internal_photos/bs/2024/0/n/QDv8GXTJyhFoA1A91t6Q/poster-divertida-mente-2-raiva.jpg"> `
+        }
+    else if (meta == "Surpreso"){
+         div_alt.innerHTML=`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStoJ0kqCMOnJhNSBid7FHtRlGAvBQGl2rGIg&s"> `
+        }
+    else if (meta == "Cansado"){
+         div_alt.innerHTML=`<img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRNkglJvHYF0DaDvtT0yN_7Vu2mOJnVyPJhdQ&s"> `
+        }
+
+ }
+</script>

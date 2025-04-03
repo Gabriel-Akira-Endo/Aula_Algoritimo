@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+ <body>
+    <!--12. Crie um programa o qual:  
+
+a) Solicite o peso total num elevador  
+
+b) Ao clicar num botão "Ligar elevador"...  
+
+c) Caso o peso seja menor que 500, exiba um alert com a frase "Elevador vai se mover"  
+
+d) Caso o peso seja a partir de 500, exiba um alert com "Alguém precisa descer do elevador"   -->
+
+
+Elevador
+<br>
+Qual o peso total do elevador em kg:
+<br><input type="text" id="ipt_ele">
+<br>
+<button onclick="ligar()">Ligar Elevador</button>
+<br>
+<div id="div_elevador"></div>
+</body>
+</html>
+<script>
+    function ligar(){
+        var peso = Number(ipt_ele.value)
+
+        if(peso<500){
+        div_elevador.innerHTML =`Elevador vai se mover `
+        }
+        else{
+        div_elevador.innerHTML =`Alguém precisa descer do elevador `
+            
+        }
+    }
+</script>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Desempenho Escolar: O Aluno Foi Aprovado?</h1>
+    <br>
+    <p>Qual a nota: <input type="text"  id="id_nota"></p>
+    <p>Qual a frequência: <input type="text" id="id_freq"></p>
+    <p><Button onclick="bt()">Analisar aluno</Button></p>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    function bt(){
+        var nota = id_nota.value
+        var freq = id_freq.value
+        if(nota>10 || nota<0){
+            div_geral.innerHTML=`"Onde já se viu nota <0 ou >10?!`
+        }
+        else if(freq >100 || freq <0){
+            div_geral.innerHTML=`Onde já se viu frequência <0 ou >100?!`
+        }
+        else if(freq>=75){
+            if(nota< 6){
+                div_geral.innerHTML=`Aluno ficou abaixo da média`
+            }
+            else if(nota <=8){
+                div_geral.innerHTML=`Aluno ficou na média`
+            }
+            else{
+                div_geral.innerHTML=`Aluno acima da média`
+            }
+            div_geral.innerHTML+=`, Aluno aprovado por frequência`
+        }
+        else {
+            if(nota< 6){
+                div_geral.innerHTML=`Aluno ficou abaixo da média`
+            }
+            else if(nota <=8){
+                div_geral.innerHTML=`Aluno ficou na média`
+            }
+            else{
+                div_geral.innerHTML=`Aluno acima da média`
+            }
+            div_geral.innerHTML+=`, Aluno reprovado por frequência`
+        }
+    }
+</script>
+<!-- Desempenho Escolar: O Aluno Foi Aprovado?
+Crie um programa que avalie o desempenho de um aluno, o qual: 
+
+a) Solicite a nota e a frequência do aluno 
+
+b) Ao clicar em "Analisar aluno", faça as seguintes ações... 
+
+c) Caso a nota não seja válida, ou seja, caso não esteja entre 0 e 10, exiba um alert "Onde já se viu nota <0 ou >10?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
+
+d) Caso a frequência não seja válida, ou seja, caso não esteja entre 0 e 100, exiba um alert "Onde já se viu frequência <0 ou >100?!" e limpe qualquer outro resultado que já estiver aparecendo na tela 
+
+e) Caso a nota estiver entre 0 e menor que 6, exiba na tela essa frase: "Aluno ficou abaixo da média" 
+
+f) Caso a nota estiver entre 6 e 8, exiba na tela essa frase: "Aluno ficou na média" 
+
+g) Caso a nota estiver entre mais que 8 e 10, exiba na tela essa frase: "Aluno acima da média" 
+
+h) Caso o aluno tiver frequência a partir de 75, exiba na tela "Aluno aprovado por frequência" ou "Aluno reprovado por frequência", em caso contrário  -->

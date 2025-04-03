@@ -1,0 +1,53 @@
+<!-- Análise de Parcelamento de Compra
+Crie um programa que avalie a possibilidade de um pagamento da compra ser parcelado ou não. 
+
+a) Pergunte o modo de pagamento dentre as seguintes opções: 
+
+    Dinheiro  
+
+    Cartão de débito  
+
+    Cartão de crédito  
+
+    Boleto 
+
+b) Ao clicar num botão "Analisar compra", exiba uma dessa mensagens: 
+
+   "Você terá que pagar a vista", somente se o pagamento for dinheiro ou débito  
+
+   "Pagamento poderá ser parcelado", se o pagamento for crédito ou boleto  -->
+
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+       Pagamento Parcelado: 
+        <br>
+        Metodo de pagamento: <select id="id_select">
+            <option>Dinheiro</option>
+            <option>Cartão debito</option>
+            <option>Cartão crédito</option>
+            <option>Boleto</option>
+        </select>
+    
+        <button onclick="bt_avalia()">Analisar compra</button>
+    </body>
+    </html>
+    <script>
+        function bt_avalia(){
+             dinheiro = Dinheiro.value
+             boleto = Boleto.value
+
+            if(dinheiro == "Dinheiro" || boleto == "Boleto"){
+                alert(`Você terá que pagar a vista`)
+            }
+            else{
+                alert(`Pagamento poderá ser parcelado`)
+            }
+    
+        }
+    </script>

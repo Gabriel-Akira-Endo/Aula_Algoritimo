@@ -1,0 +1,44 @@
+<!-- Auxílio Emergencial Covid-19
+Crie um programa o qual ajudará o governo a saber se ele dará a ajuda emergencial ao Covid19 a um cidadão:  
+
+a) Solicite o valor da renda individual do usuário  
+
+b) Solicite o valor da renda familiar do usuário  
+
+c) Ao clicar em "Terei o benefício", podem aparecer as seguintes mensagens:  
+
+   "Você terá direito ao auxílio", caso renda individual for até 2000 ou caso a renda familiar for até 3000 
+
+   "Sem direito ao auxílio", caso contrário
+
+  -->
+<!DOCTYPE html> 
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        Auxilio emergencial COVID-19: 
+        <br>
+        Renda individual:<input type="text" id="id_enem">
+        <br>
+        Renda familia: <input type="text" id="id_vest">
+    
+        <button onclick="bt_avalia()">Terei beneficio</button>
+    </body>
+    </html>
+    <script>
+        function bt_avalia(){
+            enem = id_enem.value
+            vest = id_vest.value
+            if(enem <=2000 || vest <= 3000){
+                alert(`Você terá direito ao auxílio`)
+            }
+            else{
+                alert(`Sem direito ao auxílio`)
+            }
+    
+        }
+    </script>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!--  Crie um programa que controle o peso médio dentro de um elevador:  
+
+a) Solicite a quantidade de homens que entraram no elevador 
+
+b) Solicite a quantidade de mulheres que entraram no elevador 
+
+c) Ao clicar em "Analisar peso", calcule o peso estimado sendo: homens x 80 somado com mulheres x 60 
+
+d) Exiba na página a mensagem "Este elevador suporta 800 Kg e o peso estimado desta lotação é de XXXkg"  
+
+e) Se o peso estimado for maior que 800, exibir também a mensagem "Será necessário que alguém desça para que o elevador se movimente" - na cor azul.   -->
+Quantos homens entraram:
+<br><input type="text" id="ipt_hom">
+<br>
+Quantas mulheres entraram:
+<br><input type="text" id="ipt_mul">
+<br><button onclick="bt_analise()">Analisar Peso</button>
+<div id="div_peso"></div>
+</body>
+</html>
+<script>
+    function bt_analise(){
+        var homem= Number(ipt_hom.value)
+        var mulher = Number(ipt_mul.value)
+        var total = (homem*80)+(mulher*60)
+        div_peso.innerHTML= `Este elevador suporta 800 Kg e o peso estimado desta lotação é de ${total} kg`
+        if (total>800){
+            div_peso.innerHTML+=`<br> <b style="color:blue">Será necessário que alguém desça para que o elevador se movimento</b>`
+        }
+}
+</script>

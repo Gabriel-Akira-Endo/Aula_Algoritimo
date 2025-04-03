@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Insira um número:
+    <input type="text" id="input_numero">
+    <br><br>
+    <button onclick="analisar()">Analisar</button>
+    <div id="div_analise"></div>
+    <div style="color: red;">Hoje esse texto ficará vermelho</div>
+</body>
+</html>
+<script>
+    function analisar(){
+        var numero = Number(input_numero.value);
+
+    if (numero >=0){
+        div_analise.innerHTML = `<b style="color:green">O número ${numero} é positivo</b>`
+    }
+    else {
+        div_analise.innerHTML = `<b style="color:red">O número ${numero} é negativo </b> `
+ }
+
+}
+</script>
