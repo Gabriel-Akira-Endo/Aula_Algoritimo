@@ -1,0 +1,43 @@
+<!-- 12. Expressar amor
+Crie um programa o qual:
+
+a) Pergunte o nome da pessoa que o usuário mais ama na vida;  
+
+b) Pergunte o quanto o usuário a ama (um número inteiro);  
+
+c) Ao clicar num botão "Expressar amor", devem aparecer, abaixo dele, N vezes (conforme o valor em b)) a frase indicada em a), como neste exemplo (considerando o nome "Lady Gaga" e que ama "3")   
+
+      1 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      2 - Lady Gaga, eu te amo! Sempre lembre disso!   
+
+      3 - Lady Gaga, eu te amo! Sempre lembre disso!    -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Love YOU</title>
+</head>
+<body>
+    <h1> Progama do amor </h1> 
+    <br>
+    <p>Qual o nome da pessoa que você mais ama? <input type="text" id="id_nome"></p>
+    <p>Quanto você ama está pessoa (um numero inteiro): <input type="text" id="id_love"></p>
+    <button onclick="bt()">Expressar Amor</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    function bt(){
+        var nome =id_nome.value
+        var love =Number(id_love.value)
+        var contador = 0
+        
+        while (contador <love ){
+            contador ++;
+            div_geral.innerHTML+=`${nome} eu te amo! Sempre lembresse disso<br>`
+
+        }
+    }
+</script>

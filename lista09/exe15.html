@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ghost, do outra lado da vida</title>
+</head>
+<body>
+    <h1>Ghost, do outra lado da vida</h1>
+    <br>
+    <p>Quantidade de Elefantes</p>
+    <input type="number"  id="id_qtd">
+    <br>
+    <button onclick="bt()">Atazanar a médium</button>
+    <div id="div_geral"></div>
+
+</body>
+</html>
+<script>
+    function bt(){
+        var contador = 1
+        var qtd = Number(id_qtd.value)
+        div_geral.innerHTML = "";
+        
+        
+        if(qtd>0){
+            
+            var fraseR = "";
+            if(qtd ==1 ){div_geral.innerHTML="1 elefante incomoda muita gente!,<br>"}
+            
+            
+            else{
+                while (contador <qtd){
+                fraseR += "incomadam, ";     
+                contador++;
+                div_geral.innerHTML +=`
+                 1 elefante incomoda muita gente!,<br>
+                ${contador} elefantes, incomodam, ${fraseR} muita gente!<br>`
+            }
+        }
+        }
+        else{
+            div_geral.innerHTML="Nenhum elefante incomoda ninguem"
+        }
+    }
+</script>

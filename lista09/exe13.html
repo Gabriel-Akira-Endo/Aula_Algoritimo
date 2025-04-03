@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <p>informe o priemiro numero <input type="text" id="id_n1"></p>
+    <p>informe o segundo numero <input type="text" id="id_n2"></p>
+    <br>
+    <button onclick="bt()">Curto 3 e 5!</button>
+    <div id="div_geral"></div>
+</body>
+
+</html>
+<script>
+    
+    function bt() {
+        var n1 = Number(id_n1.value)
+        var n2 = Number(id_n2.value)
+        var contador = n1
+        div_geral.innerHTML =""
+
+
+        while (contador <= n2) {
+            var resto3 = contador % 3;
+            var resto5 = contador % 5;
+
+            if (resto3 == 0 && resto5 == 0) {
+                div_geral.innerHTML += `É TRI! É PENTA<br>`
+            }
+            else if (resto3 == 0) {
+                div_geral.innerHTML += `É TRI!<br>`
+            }
+            else if (resto5 == 0) {
+                div_geral.innerHTML += `É PENTA!<br>`
+            }
+            else{
+                div_geral.innerHTML += `${contador}<br>`
+            }
+            contador++;
+        }
+
+        }
+</script>
+
+<!-- a) Deve ter dois campos para o usuário informar o intervalo crescente de números
+b) Deve ter um botão chamado "Curto 3 e 5!"
+
+c) Ao clicar nesse botão, devem aparecer QUASE todos os números entre o intervalo informado, porém...
+
+d) Se o número for múltiplo de 3, ao invés do número exiba "É TRI!". Se o número for múltiplo de 5, ao invés do número exiba "É PENTA!". Se o número for múltiplo de 3 e também de 5, ao invés do número exiba "É TRI!É PENTA!".
+
+#Ficadica: Use a técnica de dedução de múltiplos por uso do resto da divis -->
