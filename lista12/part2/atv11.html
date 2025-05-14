@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv6</title>
+</head>
+<body>
+    <h1>Controle de Estoque de Produtos</h1>
+    <input type="text" id="ipt_geral">
+    <br>
+    <button onclick="bt()">Cadastrar</button>
+    <button  onclick="mostrar()">Atualizar Estoque</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+var lista =[];
+var total = 0
+
+function bt(){
+    var  valor = Number(ipt_geral.value)
+    lista.push(valor)
+    
+    total = total + valor;
+}
+function mostrar(){
+
+    var rep = lista.length
+    div_geral.innerHTML=""
+    var qtd = 0
+    for (var i = 0; i < lista.length; i++) {
+        qtd++;
+        div_geral.innerHTML +=`${lista[rep - 1 - i]}<br>`
+    }
+    div_geral.innerHTML +=`   Você tem ${qtd} produtos cadastrados em estoque  <br>
+
+   Seu estoque vale R$${total} `
+}
+</script>
+
+<!-- 
+11. Controle de Estoque de Produtos com Cálculo de Valor Total
+Crie um programa o qual:  
+a) Pergunte ao usuário o preço de um produto; 
+
+b) Ao clicar em "Cadastrar", o preço fica cadastrado num lugar que o usuário não vê; 
+
+c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços cadastrados (em ordem inversa) e um texto como este abaixo:  
+
+   Você tem X produtos cadastrados em estoque  
+
+   Seu estoque vale R$Y 
+
+Em que X é a quantidade de produtos cadastrados pelo usuário e Y é a soma de todos os valores.  -->

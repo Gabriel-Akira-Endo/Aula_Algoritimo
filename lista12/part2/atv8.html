@@ -1,0 +1,36 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv8</title>
+</head>
+<body>
+    <h1>Cadastro Alunos invertidos</h1>
+    <input type="text" id="ipt_geral">
+    <br>
+    <button onclick="bt()">Cadastrar</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+var lista =[];
+
+
+function bt(){
+    var filme = ipt_geral.value
+    lista.push(filme)
+    
+    div_geral.innerHTML=""
+var rep = lista.length
+    for(var i = rep - 1; i >= 0; i--){
+        div_geral.innerHTML +=`${lista[i]}<br>`
+    }
+}
+
+</script>
+
+<!-- 
+8. Cadastro de Alunos com Exibição Invertida
+Crie um programa o qual:  
+a) O usuário cadastre nomes de alunos;  
+
+b) Porém, na medida que vai cadastrando, aparecem um abaixo do outro na ordem inversa em que foram cadastrados (ou seja, o último sempre fica no topo, o penúltimo em abaixo dele e assim por diante).   -->

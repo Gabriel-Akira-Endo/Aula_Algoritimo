@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv9</title>
+</head>
+<body>
+    <h1>Registrar projeto</h1>
+    quais projetos você fez:
+    <input type="text" id="ipt_geral">
+    <br>
+    <button onclick="bt()">Registrar projeto</button>
+    <br>
+    <button onclick="mostrar()">Mostrar Projetos</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+var lista =[];
+
+function bt(){
+    var projeto = ipt_geral.value
+    var lvl = ""
+    lista.push(projeto)
+    
+    if(lista.length <= 4){
+        lvl = "junior"
+    }
+     else if(lista.length <= 12){
+        lvl = "Pleno"
+    }
+    else {
+        lvl = "Sênior"
+    }
+
+    // else if(lista.length < 13){
+    // lvl= "Pleno"
+    // }
+    // else{
+    // lvl = "Sênior"
+    // }
+
+      div_geral.innerHTML=`Você já fez ${lista.length} projetos. Por isso você é um profissional ${lvl} <br>`
+}
+function mostrar(){
+
+     for(var i = 0; i < lista.length; i++){
+         div_geral.innerHTML +=`${lista[i]}<br>`
+     }
+ }
+</script>
+
+<!-- 9. Cadastro de Projetos e Classificação de Experiência Profissional
+Crie um programa o qual: 
+a) Pergunte ao usuário o nome de cada projeto que já criou na vida. Ele digita e clica em "Registrar projeto". Na medida em que vai cadastrando, verifique quantos projetos já foram cadastrados e exiba o seguinte texto abaixo:  
+
+     Você já fez X projetos. Por isso você é um profissional Z  
+
+     X é a quantidade de projetos e Z é seu nível de experiência, segundo estas regras:  
+
+     0 a 4: Júnior  
+
+     5 a 12: Pleno  
+
+     13 ou mais: Sênior  
+
+b)  Tenha um botão “Mostrar Projetos” que quando clicado mostra os projetos cadastrados, um abaixo do outro, em ordem inversa ao que foi cadastrado.  -->
