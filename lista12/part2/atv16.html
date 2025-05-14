@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv16</title>
+</head>
+<body>
+    <h1> Sistema de Cadastro de Produtos com Relatório de Preço de Venda</h1>
+    Nome do produto:<input type="text" id="ipt_nome"> 
+    Preço de compra:<input type="number" id="ipt_prec"> 
+    
+    <button onclick="cadastrar()">cadastrar</button>
+    <br>
+    <br>
+    <button onclick="historico()">Relatório de estoque</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    lista =[]
+function cadastrar(){
+var nome = ipt_nome.value
+var preco = ipt_prec.value
+
+lista.push([nome, preco])
+}
+function historico(){
+var msg =""
+var maior = (Number(lista[0][1]))*1.25
+var menor = (Number(lista[0][1]))*1.25
+var total = 0
+
+for( var i = 0; i< lista.length; i++){
+    var preco_compra = (Number(lista[i][1])*1.25)
+
+        if (preco_compra > maior) {
+            maior = preco_compra;
+        }
+        if (preco_compra < menor) {
+            menor = preco_compra;
+        }
+
+    total = total + preco_compra
+    
+    msg += `Produto ${i + 1}:${lista[i][0]}<br><br>
+    Preço de compra: R$${lista[i][1]} vender por ${preco_compra}<br><br>
+    `
+}
+
+
+div_geral.innerHTML = ` ${msg} <br><br>
+Produto mais caro:${maior} <br><br>
+Produto mais barato:${menor} <br> <br>
+Soma dos preços:${total} <br> <br>
+Média de preço de venda: ${(total / lista.length).toFixed(2)} <br> <br>
+`
+}
+</script>
+
+
+<!-- Refaça a 15ª questão de tal forma que, ao final do relatório, o programa exiba:  
+a) O nome do produto mais caro; 
+
+b) O nome do produto mais barato; 
+
+c) A soma dos preços de compra dos produtos; 
+
+d) A média de preço de venda dos produtos.  -->

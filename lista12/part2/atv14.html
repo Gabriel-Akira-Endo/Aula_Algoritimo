@@ -1,0 +1,64 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv14</title>
+</head>
+<body>
+    <h1>Registro de Números com Histórico, Maior e Menor Valor</h1>
+    Digite um numero qualquer:<input type="number" id="ipt_num"> <button onclick="cadastrar()">cadastrar</button>
+    <br>
+    <button onclick="historico()">Analisar histórico</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    lista =[]
+function cadastrar(){
+var numero = ipt_num.value
+lista.push(numero)
+}
+function historico(){
+var msg =""
+var maior = lista[0]
+var menor = lista[0]
+
+for( var i = 0; i< lista.length; i++){
+    var num = Number(lista[i]) 
+            if (num > maior) {
+            maior = num;
+        }
+        if (num < menor) {
+            menor = num;
+        }
+
+    msg += `${i + 1}º Número:${lista[i]}<br>`
+}
+
+
+div_geral.innerHTML = ` ${msg}
+   Maior: ${maior}  
+
+   Menor: ${menor}`
+}
+</script>
+
+<!-- 14. Registro de Números com Histórico, Maior e Menor Valor
+Crie um programa o qual:  
+a) Tenha um campo "Digite um número qualquer";  
+
+b) Tenha um botão "Analisar histórico" que ao ser clicado, o número é cadastrado em algum lugar e, em seguida, deve aparecer um histórico dos números cadastrados, bem como o maior e o menor, como no exemplo a seguir:  
+
+   1º Número: 15  
+
+   2º Número: 22  
+
+   3º Número: 19  
+
+   4º Número: 5  
+
+   Maior: 22  
+
+   Menor: 5   -->

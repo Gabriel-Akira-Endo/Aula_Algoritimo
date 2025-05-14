@@ -1,0 +1,62 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv15</title>
+</head>
+<body>
+    <h1> Sistema de Cadastro de Produtos com Relatório de Preço de Venda</h1>
+    Nome do produto:<input type="text" id="ipt_nome"> 
+    Preço de compra:<input type="number" id="ipt_prec"> 
+    
+    <button onclick="cadastrar()">cadastrar</button>
+    <br>
+    <br>
+    <button onclick="historico()">Relatório de estoque</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    lista =[]
+function cadastrar(){
+var nome = ipt_nome.value
+var preco = ipt_prec.value
+
+lista.push([nome, preco])
+}
+function historico(){
+var msg =""
+
+for( var i = 0; i< lista.length; i++){
+    var preco_compra = (Number(lista[i][1])*1.25)
+    msg += `Produto ${i + 1}:${lista[i][0]}<br><br>
+    Preço de compra: R$${lista[i][1]} vender por ${preco_compra}<br><br>
+    `
+}
+
+
+div_geral.innerHTML = ` ${msg}`
+}
+</script>
+
+
+<!-- Crie um pequeno sistema de loja eletrônica o qual:  
+a) Tenha um campo "Nome do produto" e outro "Preço de compra"; 
+
+b) Tenha um botão "Cadastrar". Ao clicar nele, o nome e preço ficam cadastrados em algum lugar, por enquanto invisível ao usuário  
+
+c) Tenha um botão "Relatório de estoque". Ao clicar nele, deve aparecer uma listagem dos produtos cadastrados com seu valor para venda, como no exemplo a seguir:  
+
+   Total de produtos: 2  
+
+   Produto 1: Leite de arroz  
+
+   Preço de compra: R$1.50. Vender por R$1,87  
+
+   Produto 2: Caixa de chocolates  
+
+   Preço de compra: R$9.00. Vender por R$11,25  
+
+O preço de venda é sempre o valor da compra mais 25%.  -->

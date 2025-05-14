@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv13</title>
+</head>
+<body>
+    <h1>Controle de Campanha de Time de Futebol com Análise de Aproveitamento</h1>
+    <h2>Indique o resultado</h2>
+    <select  id="select_geral" >
+        <option value="1">Vitória</option>
+        <option value="2">Empate</option>
+        <option value="3">Derrota</option>
+    </select>
+    <br>
+    <button onclick="bt()">Registrar</button>
+    <div id="div_geral"></div>
+
+     Indique qual jogo deseja saber o resultado:<input type="number" oninput="busca()" id="ipt_jogo"> 
+    <div id="div_geral2"></div>
+
+</body>
+</html>
+<script>
+var lista =[];
+var total = 0
+
+function bt(){
+    var  jogo = select_geral.value
+    
+        lista.push(jogo)
+        qtdV = 0;
+        qtdE = 0;
+        qtdD = 0;
+        pontos = 0
+
+    for(var i = 0;i <lista.length; i++){
+        if(lista[i] == 1){
+            qtdV++;
+            pontos = pontos +3
+        }
+        else if(lista[i] == 2){
+            qtdE++;
+            pontos = pontos +1
+        }
+        else{
+            qtdD++;
+
+        }
+        div_geral.innerHTML =`  
+
+      O time teve: ${qtdV} vitórias, E ${qtdE} empates, ${qtdD} derrotas  
+
+      Pontuação total: ${pontos} pontos  
+
+      Aproveitamento: ${ ((pontos * 100)/ (lista.length*3)).toFixed(2)}  `
+
+    }
+
+    
+}
+function busca(){
+
+    var jogo = (Number(ipt_jogo.value))-1
+var qtd = lista.length
+var msg = ""
+if(jogo <= lista.length-1){
+
+    if(lista[jogo] == 1){
+        msg = "Ganhou"
+    }
+    else if(lista[jogo] == 2){
+        msg = "Empatou"
+    }
+    else{
+        msg = "Perdeu"
+    }
+
+
+div_geral2.innerHTML=`  No ${ipt_jogo.value}º jogo, o time ${msg}  `
+
+}
+else{
+div_geral2.innerHTML=`Não foi cadastrado um ${ipt_jogo.value}º jogo `
+}
+}
+</script>
+<!-- 13. Controle de Campanha de Time de Futebol com Análise de Aproveitamento
+Crie um programa o qual:  
+a) Cadastre a campanha de um time de futebol num campeonato da seguinte forma:  
+
+a.1) Tenha um 'combo' (select/option) identificado com o texto "Indique o resultado" com os itens:  
+
+  Vitória  
+
+  Empate  
+
+  Derrota  
+
+b) Ao clicar num botão "Registrar jogo", o resultado escolhido em a) é registrado em um local invisível ao usuário e um texto abaixo é exibido (ou atualizado). O texto é como este:  
+
+      O time teve: V vitórias, E empates, D derrotas  
+
+      Pontuação total: X pontos  
+
+      Aproveitamento: Y%  
+
+Em que X é calculado assim: Cada vitória (V) vale 3 pontos. Cada empate (E) vale 1 ponto. Cada derrota (D) vale 0 pontos.  
+
+O Y é o total de pontos conquistados (X) dividido pelo total de pontos possíveis (ou seja, considerando que tivesse vencido todos os jogos) vezes 100.  
+
+c) Deve haver um campo "Indique qual jogo deseja saber o resultado". Na medida em que vai digitando, aparece um texto, abaixo do texto de b) como este:  
+
+  No XXº jogo, o time Ganhou (ou "Perdeu" ou "Empatou")  
+
+ou um texto como este, caso o valor seja de um jogo que não foi cadastrado:  
+
+  Não foi cadastrado um XXº jogo  
+
+Obs: Neste item considere que o usuário ache que 1 indica o 1º jogo. Ou seja, o usuário não imagina que o 1º é o jogo "0" na verdade.  -->
