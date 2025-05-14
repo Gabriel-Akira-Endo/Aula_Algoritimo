@@ -1,0 +1,42 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe7</title>
+</head>
+
+<body>
+    Quantos depositos você fez:<br> <input type="text" id="ipt1"><br>
+    Qual o valor depositado por vez<br><input type="text" id="iptValor"> <br>
+    <button onclick="bt()">Acompanhar Grana</button><br>
+    <div id="div_geral"></div>
+</body>
+
+</html>
+<script>
+    function bt() {
+
+        var numero = Number(ipt1.value)
+        var valor = Number(iptValor.value)
+        var msg = ""
+        var total = 0;
+
+
+        for (var contador = 1; contador <= numero; contador++) {
+            resto = contador % 3
+            if (resto == 0) {
+                total = total + valor;
+                total = total * 1.01
+                msg += `${contador}º Mês: ${total}<br><br>`
+            }
+            else {
+                total = total + valor;
+                msg += `${contador}º Mês: ${total}<br><br>`
+            }
+
+        }
+
+        div_geral.innerHTML = msg + `<br> Total guardado:${total}`;
+    }
+</script>

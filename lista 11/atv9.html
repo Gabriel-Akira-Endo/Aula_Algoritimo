@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv1</title>
+    <style>
+        img {
+            width: auto;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Será que é bom aluno</h1>
+    <button onclick="btNum()">Gerar uma nota de aluno entre 3 e 10</button>
+    <div id="div_nota"></div>
+<br><br><br>
+    <button onclick="btFreq()">Gerar uma frequência de aluno entre 50 e 100</button>
+    <div id="div_freq"></div>
+<br><br>
+<button onclick="aprovado()">Ver Aprovação</button>
+<div id="div_aprovado"></div>
+
+
+</body>
+</html>
+<script>
+    var aleatorioNum
+    var aleatorioFreq
+
+    function btNum(){
+        var Numero = Math.random()
+        aleatorioNum =(Numero * 7+3).toFixed(1);
+
+        div_nota.innerHTML=`Nota:${aleatorioNum}`
+    }
+    function btFreq(){
+        var Freq = Math.random()
+        aleatorioFreq =(Freq * 50+50).toFixed(1);
+
+        div_freq.innerHTML= `Frequecia:${aleatorioFreq}`
+    }
+    function aprovado(){
+        if(aleatorioFreq >=75 && aleatorioNum >=6){
+            msg="aprovado"    
+        }
+else{
+    msg="reprovado"    
+}
+            div_aprovado.innerHTML=`Com a nota ${aleatorioNum} e frequência ${aleatorioFreq}%, o aluno está ${msg}`
+    }
+    </script>
+
+<!-- a) Tenha um botão "Gerar uma nota de aluno entre 3 e 10" que faz aparecer, abaixo dele, a nota gerada  
+
+b) Tenha um botão "Gerar uma frequência de aluno entre 50 e 100" que faz aparecer, abaixo dele, a frequência gerada  
+
+c) Deixe todos os valores com 1 casa decimal na tela  
+
+d) Ao clicar no botão “Ver Aprovação”, exiba na tela uma mensagem como a abaixo, de acordo com a situação do aluno: 
+
+    "Com nota X e frequência Y, o aluno está Z!" 
+
+Onde X é a nota, Y a frequência e Z a situação do aluno (aprovado ou reprovado), sendo que para a aprovação, o aluno deve possuir nota a partir de 6 e frequência a partir de 75%.  -->

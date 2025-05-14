@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Destino de viagem: 
+    <input id="input_produto" type="text">
+    <button onclick="bt()">Adicionar</button>
+    <br>
+    <button onclick="primeiro()">Primeira Viagem</button>
+    <button onclick="ter()">Terceira Viagem</button>
+    <button onclick="ult()">ultima Viagem</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    var lista_produtos = []; 
+    
+    function bt() {
+        var produto = input_produto.value
+        lista_produtos.push(produto);
+        
+    }
+        function primeiro(){
+                if(lista_produtos[0] =="" || lista_produtos[0] == undefined){
+            div_mensagem.innerHTML = `Ainda não viajou`
+        }
+        else{
+            div_mensagem.innerHTML = `Primeira viagem foi em : ${lista_produtos[0]} <br>`
+        }   
+    }
+    function ter(){
+        if(lista_produtos[2] == undefined){
+            div_mensagem.innerHTML += `Ainda não fez a terceira viagem `
+        }
+        else{
+            div_mensagem.innerHTML += `${lista_produtos[2]}`
+        }
+    }
+    function ult(){
+
+        if(lista_produtos[0] =="" || lista_produtos[0] == undefined){
+        div_mensagem.innerHTML = `Ainda não viajou`
+    }
+    else{
+        div_mensagem.innerHTML = `${lista_produtos[lista_produtos.length-1]}`
+    }   
+}
+
+    </script>
+
+<!-- 
+//        2. Diário de Viagens: Do Primeiro ao Último Destino
+// Crie um programa o qual: 
+// a) Tenha um campo "Destino de viagem" e um botão "Adicionar";
+
+// b) Ao clicar no botão, esse destino deve ser adicionado a uma lista (que não aparece para o usuário). 
+
+// Obs: Não existe problema em serem registrados valores repetidos.
+
+// c) Devem haver os botões: 
+
+//   "Primeira viagem" - Ao ser clicado, aparece abaixo o primeiro local cadastrado ou "Ainda não viajou" - caso nenhuma (zero viagens) viagem tenha sido registrada;
+
+//   "Terceira viagem" - Ao ser clicado, aparece abaixo o terceiro local cadastrado ou "Ainda não fez a terceira viagem", caso não tenha feito, ao menos, três viagens;
+
+//   "Última viagem" - Ao ser clicado, aparece abaixo o último local cadastrado ou "Ainda não viajou", caso nenhuma (zero viagens) viagem tenha sido registrada. -->

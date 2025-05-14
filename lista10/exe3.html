@@ -1,0 +1,38 @@
+<!-- Capacidade Flexível
+Incremente a questão anterior de tal forma que:   
+a) Também tenha um campo no qual o usuário indique a capacidade de passageiros que o veículo suporta   
+
+b) Ao clicar no botão, 
+as frases só começam a mostrar que o passageiro terá que esperar quando a capacidade indicada em a) for excedida.   --><!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exe3</title>
+    </head>
+    <body>
+        Quantas pessoas vão entrar no carro<br> <input type="text" id="ipt1"><br>
+        Qual a capacidade de passageiro <br><input type="text" id="iptTotal">    
+        <button onclick="bt()">#Partiu Carona</button>
+        <div id="div_geral"></div>
+    </body>
+        </html>
+        <script>
+            function bt(){
+                
+                var numero = Number(ipt1.value)
+                var total = Number(iptTotal.value)
+                var msg = `Entrou o 1º passageiro<br>`
+                
+    
+                for(var contador = 2; contador <= numero; contador ++){
+                    if(contador <= total){
+                        msg += `Entrou o ${contador}º passageiro<br>`;
+                    }
+                    else{
+                        msg += `O ${contador}º passageiro terá que esperar<br>`
+                    }
+                }
+                div_geral.innerHTML = msg;
+            }
+        </script>

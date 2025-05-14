@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exe9</title>
+</head>
+
+<body>
+    <h1>FizzBuzz</h1>
+    <br>
+    <br>
+    <button onclick="bt()">FizzBuzz</button>
+    <div id="div_geral"></div>
+</body>
+
+</html>
+<script>
+    function bt() {
+       
+        for(var contador = 1; contador <100; contador++){
+            var resto3 = contador % 3
+            var resto5 = contador % 5
+
+            if(resto3 == 0 && resto5 == 0){
+                div_geral.innerHTML += `FizzBuzz <br>`
+            }
+             else if(resto3 == 0){
+                div_geral.innerHTML += `Fizz<br>`
+            }
+            else if(resto5 == 0){
+                div_geral.innerHTML += `Buzz<br>`
+            }
+            else{
+                div_geral.innerHTML +=`${contador}<br>`
+            }
+        }
+    }
+</script>

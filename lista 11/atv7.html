@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="bt()">Quero um número cabalístico!</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+    function bt(){
+        div_geral.innerHTML=""
+        var numero = Math.floor(Math.random()*14+1)
+         div_geral.innerHTML=numero
+
+        if(numero == 3 ||
+            numero == 4 ||
+            numero == 7 ||
+            numero == 10 ||
+            numero == 12
+        ){
+            msg =`<br> Eu S2 números cabalísticos!`
+        }
+        else {
+            msg =`<br> Ah, me dá um número bom na próxima!`
+        }
+
+
+        div_geral.innerHTML+=`${msg}`
+
+    }
+    
+</script>
+
+
+<!-- 7. Crie um programa o qual:  
+a) Ao clicar no botão "Quero um número cabalístico!", deve sortear e exibir na tela, um número entre 1 e 15  
+
+b) Se o número sorteado for cabalístico (se for o número 3, 4, 7, 10 ou 12), deve aparecer uma frase abaixo do número, dizendo "Eu S2 números cabalísticos!" 
+
+c) Se não for sorteado um número dentre os desejados, deve exibir "Ah, me dá um número bom na próxima!" 
+
+   -->

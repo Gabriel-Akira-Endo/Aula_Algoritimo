@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv7</title>
+</head>
+<body>
+    <h1 >Azul e Vermelho</h1>
+    <input type="text" id="ipt_geral">
+    <br>
+    <button onclick="bt()">Cadastrar</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+var lista =[];
+
+
+function bt(){
+    var filme = ipt_geral.value
+    lista.push(filme)
+    
+    div_geral.innerHTML=""
+
+    for(var i = 0; i <lista.length; i++){        
+        var sobra = i % 2 ;
+        if (sobra == 0){
+        div_geral.innerHTML +=`<h4 style="color:blue">${lista[i]}</h4>`
+    }
+    else{
+        div_geral.innerHTML +=`<h4 style="color:red">${lista[i]}</h4>`
+    }
+    }
+}
+</script>
+
+<!-- 7. Filmes em Cores: Azul e Vermelho Alternados
+Crie um programa o qual:
+a) O usuário informa os nomes dos filmes que mais gosta e clica em "Cadastrar"; 
+b) Na medida em que vai cadastrando, os filmes vão aparecendo um abaixo do outro, abaixo do botão, só que aparecem na cor azul, depois vermelho, depois azul, depois vermelho, e assim por diante ...   -->

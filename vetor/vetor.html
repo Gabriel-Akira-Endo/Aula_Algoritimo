@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Produto:
+    <input id="input_id">
+    <br>
+    <button onclick="bt()">Adicionar </button>
+    <div id="div_geral">
+
+    </div>
+</body>
+</html>
+<script>
+    var lista = []
+    function bt(){
+        var produto = input_id.value  
+         lista.push(produto)
+         div_geral.innerHTML= lista
+    }
+</script>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Produto: 
+    <input id="input_produto" type="text">
+    <button onclick="bt()">Pesquisar</button>
+    <div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+    // var lista_produtos = []; // inicia uma lista vazia
+    var lista_produtos = ["maçã", "uva","banana","pêssego"] // inicia uma lista contendo dois textos
+
+    function bt() {
+        var produto = input_produto.value
+       if( lista_produtos.includes(produto)){
+        div_mensagem.innerHTML=`   A fruta ${produto} existe na lista.`
+       }
+       else{
+        div_mensagem.innerHTML=`   A fruta  não ${produto} existe na lista.`
+       }
+
+         // adiciona o produto na última posição do vetor, gerando um novo registro
+
+        // div_mensagem.innerHTML = `${lista_produtos}<br><br>`; // exibe a lista completa, padronizada pelo "toString()" do vetor
+
+        // // percorrendo a lista do índice 0 até o último índice válido, de acordo com o tamanho do vetor (length)
+        // for (var i = 0; i < lista_produtos.length; i++) {
+        //     div_mensagem.innerHTML += `${i}. ${lista_produtos[i]} <br>`; // exibe o produto que está na posição [i] da lista
+        // }
+    }
+</script>
+<!-- 
+1. Caça às Frutas: Descubra se está na Lista
+Crie um programa o qual: 
+a) Tenha uma lista de frutas a qual o usuário não vê;
+
+b) Tenha na tela um campo em que o usuário digita o nome de uma fruta e um botão "Pesquisar";
+
+c) Ao clicar em "Pesquisar", o programa busca a fruta digitada, na lista.
+
+c.1) Se achar, exibe um texto abaixo com a frase:
+
+    A fruta X existe na lista.
+
+c.2) Caso a fruta pesquisada não exista, exiba: 
+
+    Não existe a fruta X na lista.
+
+OBS: para criar uma lista que já se inicia com valores, utilize
+    var nomes = ['JP', 'Braian', 'Brandão']; 
+
+  -->

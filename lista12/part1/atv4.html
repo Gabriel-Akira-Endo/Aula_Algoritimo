@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv4</title>
+</head>
+<body>
+    <h1>  Top Filmes Favoritos: Do Mais Amado ao Menos</h1>
+Qual Filme tu Gosta: <input type="text" id="ipt_bairro"><button onclick="btADD()">Cadastrar filme</button>
+
+<br>
+<button onclick="btFav()">Ver Favoritos</button> 
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var lista =[]
+var ultimo = 0;
+
+function btADD(){
+    var bairro = ipt_bairro.value   
+    lista.push(bairro)
+}
+function btFav(){
+ultimo = 0
+    div_mensagem.innerHTML=`Filmes Favoritos:<br>`
+for(var i = 0; i <lista.length; i++ ){
+     ultimo = i;
+    div_mensagem.innerHTML+= `${i+1}º ${lista[i]}<br>`
+}
+
+div_mensagem.innerHTML+=`  O filme que você mais gosta é ${lista[0]}<br>`
+div_mensagem.innerHTML+=`  O filme que você mais gosta é ${lista[ultimo]}<br>`
+}
+</script>
+
+
+<!-- 4. Top Filmes Favoritos: Do Mais Amado ao Menos
+Crie um programa o qual:
+
+a) O usuário informa os nomes dos filmes que mais gosta, começando pelo seu favorito e depois o segundo que mais gosta e assim por diante. 
+
+b) Para cadastrar cada filme, ele clica em "Cadastrar filme";
+
+c) Crie um botão "Ver Favoritos" que, ao ser clicado, exibe os filmes favoritos;
+
+d) Exiba também, abaixo de tudo, uma frase assim:  "Total: X";
+
+d.1) Após a frase acima, mostre as seguintes frases: 
+
+ O que filme que mais gosta é A.
+
+ E desses, o que menos gosta é B 
+
+  Obs: "A" é o primeiro filme cadastrado e "B" o último. -->

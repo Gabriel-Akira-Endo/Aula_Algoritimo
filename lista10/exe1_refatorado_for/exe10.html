@@ -1,0 +1,42 @@
+<!-- 10. Corrida de Voltas
+Crie um programa o qual:
+ 
+a) Pergunte ao usuário quantas voltas um carro dará numa corrida   
+
+b) Ao clicar num botão "Iniciar corrida!"...   
+
+c) Exiba, debaixo do botão, frases como estas:   
+
+       Carro dando a 1ª volta   
+
+       Carro dando a 2ª volta   
+
+       Carro dando a 3ª volta   
+
+d) Até que o carro "termine" a corrida. Nesse caso, exiba abaixo de tudo, somente 1 vez, a frase "Corrida finalizada!"    -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Diga o numero de voltas: <input type="text" id="id_num"></p>
+    <button onclick="bt()">Iniciar corrida!</button>
+    <div id="div_geral"></div>
+</body>
+</html>
+<script>
+function bt(){
+    
+    var numero = Number(id_num.value)
+     div_geral.innerHTML =""
+     
+    for( var contador = 1 ;contador <=numero;contador++){
+     
+        div_geral.innerHTML+=`Carro dando a ${contador}º volta<br>`
+     }
+}
+</script>

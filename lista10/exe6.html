@@ -1,0 +1,51 @@
+<!-- Acompanhando a Poupança
+Crie um programa no qual:   
+a) O usuário informa quantos depósitos ele fez no banco   
+
+b) O usuário informa o valor de cada depósito, pois ele sempre depositava exatamente o mesmo valor   
+
+c) Ao clicar em "Acompanhar grana", deve aparecer o valor, mês a mês, como neste exemplo   
+
+    1º Mês: R$ 500.00   
+
+    2º Mês: R$ 1000.00   
+
+    3º Mês: R$ 1500.00   
+
+    4º Mês: R$ 2000.00   
+
+    5º Mês: R$ 2500.00   
+
+    Total guardado: R$2500.00   
+
+No exemplo acima, o usuário informou 5 depósitos e 500 por depósito.  -->
+
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Exe6</title>
+    </head>
+    <body>
+        Quantos depositos você fez<br> <input type="text" id="ipt1"><br>
+        Qual o valor depositado por vez<br><input type="text" id="iptValor">    <br>
+        <button onclick="bt()">Acompanhar Grana</button><br>
+        <div id="div_geral"></div>
+    </body>
+        </html>
+        <script>
+            function bt(){
+                
+                var numero = Number(ipt1.value)
+                var valor = Number(iptValor.value)
+                var msg = ""
+                var total = 0;
+                
+    
+                for(var contador = 1; contador <=numero; contador ++){
+                    total = total +valor ;
+                    msg += `${contador}º Mês: ${total}<br><br>`
+                }
+                div_geral.innerHTML = msg+`<br> Total guardado:${total}`;
+            }
+        </script>

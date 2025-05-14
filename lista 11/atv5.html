@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jo ken po</title>
+</head>
+<body style="display: flex; flex-direction: column; justify-content: center; align-items: center;">
+    <button onclick="bt()">Jogar</button>
+    <h1>jo ken po</h1>
+    <div id="div_jogador1">
+
+<br>
+    </div>
+    <div id="div_jogador2">
+
+        <br>
+    </div>
+    <div id="div_geral">
+
+    </div>
+</body>
+</html>
+<script>
+        var contador1 = 0
+        var contador2  = 0
+function bt(){
+        var player1 = parseInt(Math.random()*3+ 1)
+        var player2 = parseInt(Math.random()*3+ 1)
+ 
+        msg = ``
+
+        if(player1 == 1 ){
+             div_jogador1.innerHTML =` jogador 1:<br>
+             <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d4/Stone.png/revision/latest?cb=20220112085705" alt="pedra">`            
+        }
+        if(player1 == 2){
+            div_jogador1.innerHTML =` jogador 1:<br>
+            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png/revision/latest/thumbnail/width/360/height/360?cb=20230611043112" alt="papel">`   
+        }
+        if(player1 == 3){
+            div_jogador1.innerHTML =` jogador 1:<br>
+            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Shears_JE2_BE2.png/revision/latest/thumbnail/width/360/height/360?cb=20191012183756" alt="tesoura">`  
+        }
+        if(player2 == 1 ){
+             div_jogador2.innerHTML =` jogador 2:<br>
+             <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/d/d4/Stone.png/revision/latest?cb=20220112085705" alt="pedra">`            
+        }
+        if(player2 == 2){
+            div_jogador2.innerHTML =` jogador 2:<br>
+            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/f/f2/Paper_JE2_BE2.png/revision/latest/thumbnail/width/360/height/360?cb=20230611043112" alt="papel">`   
+        }
+        if(player2 == 3){
+            div_jogador2.innerHTML =` jogador 2:<br>
+            <img src="https://static.wikia.nocookie.net/minecraft_gamepedia/images/5/5a/Shears_JE2_BE2.png/revision/latest/thumbnail/width/360/height/360?cb=20191012183756" alt="tesoura">`  
+        }
+
+
+
+        if(
+            player1 == 1 && player2 == 3 ||
+            player1 == 2 && player1 == 1||
+            player1 == 3 && player2 == 2
+        ){
+        contador1++
+        msg = "jogador 1 venceu"
+        }
+        else if(
+            player1 == 1 && player2 == 1 ||
+            player1 == 2 && player1 == 2||
+            player1 == 3 && player2 == 3
+        ){
+            msg = "empate"
+        }
+        else{
+            contador2++
+            msg = "jogador 2 venceu"
+        }
+
+        div_geral.innerHTML=`${msg} <br>
+    
+     Jogador 1: ${contador1} vitória(s) 
+<br>
+     Jogador 2: ${contador2} vitória(s)`
+
+    }
+</script>
+
+
+
+
+<!-- Tente fazer uma pequena simulação do famoso jogo "jo ken po" (pedra, papel e tesoura) em HTML/JS:  
+
+a) Ao clicar no botão "Jogar", deve aparecer abaixo dele ou a figura de uma pedra, de uma folha de papel ou de uma tesoura (seja qual for a imagem, ela deve ter 200px de altura). 
+
+b) Abaixo das imagens, exiba quem venceu e exiba/atualize o placar de vitórias como abaixo: 
+
+     O jogador 1 venceu!  
+
+     Jogador 1: 1 vitória(s) 
+
+     Jogador 2: 0 vitória(s)  -->

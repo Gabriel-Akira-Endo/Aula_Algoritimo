@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv5</title>
+</head>
+<body>
+    <h1>  Top Filmes Favoritos: Do Mais Amado ao Menos</h1>
+Qual Filme tu Gosta: <input type="text" id="ipt_bairro"><button onclick="btADD()">Cadastrar filme</button>
+
+<br>
+<button onclick="btFav()">Ver Favoritos</button> 
+<div id="div_mensagem"></div>
+</body>
+</html>
+<script>
+
+var lista =[]
+var ultimo = 0;
+
+function btADD(){
+    var bairro = ipt_bairro.value   
+    lista.push(bairro)
+}
+function btFav(){
+ultimo = 0
+    div_mensagem.innerHTML=`Filmes Favoritos:<br>`
+
+div_mensagem.innerHTML+=`    Seu filme favorito: ${lista[0]}<br>`
+
+if(lista[2] == undefined)
+div_mensagem.innerHTML+=` Seu 3º filme favorito: Ainda não existe<br>`
+else{
+    div_mensagem.innerHTML+=` Seu 3º filme favorito: ${lista[2]}<br>`
+}
+
+div_mensagem.innerHTML+=` Total de filmes cadastrados: ${lista.length}<br>`
+
+
+}
+</script>
+
+<!-- 5. Painel de Favoritos: Seus Filmes em Destaque
+Crie um programa o qual: 
+a) Usuário cadastre os nomes de seus filmes favoritos e adiciona cada um ao clicar em "Cadastrar Filme";
+
+b) Na medida em que vai cadastrando, deve ser exibido ou atualizado um "painel" como neste exemplo: 
+
+  Seu filme favorito: Donnie Darko
+
+  Seu 3º filme favorito: A era do gelo 1 
+
+  Total de filmes cadastrados: 5 
+
+Obs: no "3º filme", caso não tenham sido cadastrados ainda 3 filmes, exibir "Ainda não existe". 
+
+Obs: o "Filme favorito" é o primeiro cadastrado. -->

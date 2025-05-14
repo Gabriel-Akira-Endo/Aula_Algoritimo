@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>atv1</title>
+    <style>
+        img {
+            width: auto;
+            height: 150px;
+        }
+    </style>
+</head>
+<body>
+    <button onclick="bt()">Sortear Nota para aluno</button>
+    <div id="div_geral"></div>
+
+</body>
+</html>
+<script>
+    function bt(){
+        var Numero = Math.random()
+        var aleatorio =(Numero * 10).toFixed(1);
+
+        div_geral.innerHTML=aleatorio
+        
+    }
+    </script>
+
+<!-- a) Ao clicar no botão "Sortear Nota para aluno", apareça na página um número aleatório, entre 0 e 10 (podem ser sorteados números decimais com uma casa decimal, como "8.5", por exemplo).  -->

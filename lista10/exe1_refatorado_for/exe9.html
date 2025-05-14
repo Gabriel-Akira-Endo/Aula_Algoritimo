@@ -1,0 +1,38 @@
+<!-- 9. Pares no Intervalo  
+Crie um programa o qual:
+ 
+a) Solicite um intervalo crescente de valores numéricos    
+
+b) Ao clicar num botão "S2 Pares"...   
+
+c) Exiba, debaixo do botão, todos os números pares contidos no intervalo.   -->
+ 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Cite um numero: <input type="text" id="id_n1"></p>
+    <p>Cite um numero maior que o antigo para vermos todos os numeros pares no intervalo dele: <input type="text" id="id_n2"></p>
+    <button onclick="bt()">S2 Pares</button>
+    <div id="div_geral">  </div>
+</body>
+</html>
+<script>
+
+function bt(){
+
+    var n1 = Number(id_n1.value)
+    var n2 = Number(id_n2.value)
+     div_geral.innerHTML= ""
+    
+    for(var contador = n1;contador <= n2;contador ++){
+        var resto = contador % 2;
+        if(resto == 0){
+        div_geral.innerHTML+=`${contador}<br>`
+     }
+}}
+</script>
