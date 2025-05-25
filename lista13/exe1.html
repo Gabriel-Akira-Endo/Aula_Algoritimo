@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1></h1>
+    Qual musica vc curte: <input type="text" id="id_msc"> <button onclick="bt_geral()">Cadastra</button> 
+    <br> <button onclick="exibir()">Exibir</button>
+    <br>
+    De: <input type="text" id="de_id"> Até: <input type="text" id="ate_id">
+    <button onclick="bt_filtrar()">filtrar</button>
+<br>
+<div id="div_msg"></div>
+</body>
+</html>
+
+<script>
+ lista = []
+
+    function bt_geral(){
+        var msc = id_msc.value
+        lista.push(msc)
+    }
+    function exibir(){
+        msg = ""
+        for(var i = 0; i<lista.length; i++){
+           msg += `${lista[lista.length - 1 - i]}<br>`
+        }
+        div_msg.innerHTML= msg
+    }
+
+    function bt_filtrar(){
+        var ate = (Number(ate_id.value))- 1
+        var de  =(Number(de_id.value))- 1
+        var msg = ""
+
+        for(var i = de; i<=ate; i++){
+           msg += `${i+1}º ${lista[i]}<br>`
+        }
+        div_msg.innerHTML= msg
+    }
+    
+
+</script>
+
+<!-- 1. PARTE 1
+1. Caixa de Músicas
+ Crie um programa o qual:
+
+a) O usuário informa os nomes das músicas que mais gosta e clica em "Cadastrar"; 
+
+b) Ao clicar em "Exibir", as músicas vão aparecendo uma abaixo da outra, abaixo do botão. 
+
+c) Tenha dois campos "De..." e "Até...", que recebem um intervalo de dois números crescentes.
+
+d) Ao clicar em "Filtrar", deve exibir as músicas que estão dentro daquele intervalo.
+
+OBS: se o usuário informar "de 1 até 5", deve mostrar da primeira música até a quinta música da lista. -->
