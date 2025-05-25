@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Cadastrar comida:
+    <br><input type="text" id="inpt_comida">
+    <br>
+    quantidade:
+    <br><input type="text" id="inpt_qtd">
+    <br>
+    <button onclick="Cadastrar()">Cadastrar</button>
+    <button onclick="verificarComida()">VerificarComida</button>
+    <br>
+    <input type="text" id="intp_pesquisar" placeholder="Pesquiar comida">
+    <button onclick="pesquisar()">Pesquisar</button>
+    <button onclick="estoque()">Exibir Estoque</button>
+    <div id="div_estoque"></div>
+  
+<h1></h1>Alterar Nome de Comida:</h1>
+<br>
+Nome atual da comida: <input type="text" id="Nome_atual">
+<br>
+Novo nome da comida: <input type="text" id="Novo_nome">
+<br>
+<button onclick="alt_nome()">Alterar Nome</button>
+  <div id="div_alterar_nome"></div>
+<br>Luffy comeu a comida:
+<br><input type="text" id="inpt_del">
+<br><button onclick="deletar()">Remover do estoque</button>
+<div id="div_msg"></div>
+
+</body>
+
+</html>
+<script>
+    listaComida = []
+    qtdComida = []
+
+    function Cadastrar() {
+        listaComida.push(inpt_comida.value)
+    }
+    function verificarComida() {
+        if (listaComida.length < 3) {
+            alert("Desse jeito, o Luffy devora até o navio")
+        }
+        else if (listaComida.length < 8) {
+            alert("O comilão do Luffy não vai deixar sobrar nenhuma comida")
+        }
+        else if (listaComida.length < 10) {
+            alert("Assim, talvez sobre um pouco para a tripulação")
+        }
+        else {
+            alert("Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!")
+        }
+    }
+    function pesquisar() {
+        var pesquisa = intp_pesquisar.value
+        qtdComida = 0
+        if (listaComida.includes(pesquisa)) {
+            for (var i = 0; i < listaComida.length; i++) {
+                if (listaComida[i] == pesquisa) {
+                    qtdComida++
+                }
+            }
+            alert(`Temos a comida ${pesquisa} e há ${qtdComida} unidade(s) dela`)
+        }
+        else {
+            alert(`Alguém vai ter que comprar X, tá fazendo falta...`)
+        }
+    }
+    function estoque() {
+        var msg = ""
+        var controle = []
+        for (var i = 0; i < listaComida.length; i++) {
+            if (controle.includes(listaComida[i])== false) {
+
+              controle.push(listaComida[i])
+              
+              var qtd = 0
+              
+              for(var l = 0; l <listaComida.length ; l++){
+                if(listaComida[i] ==listaComida[l]){
+                    qtd++
+                }
+              }
+            if(qtd > 1) {
+                msg +=`${listaComida[i]} (${qtd} unidades)<br>`
+            }
+            else{
+                msg +=`${listaComida[i]} (${qtd} unidade)<br>`
+            }
+        }  
+    }
+    div_estoque.innerHTML=msg
+        }
+
+function alt_nome(){
+    Novo =Novo_nome.value 
+    Atual =Nome_atual.value
+    
+    if(listaComida.includes(Atual)){
+        while(listaComida.includes(Atual)){
+            listaComida[listaComida.indexOf(Atual)] = Novo
+        }
+        div_alterar_nome = `A comida ${Atual} foi alterada para ${Novo}`
+    }
+    else{
+        alert("A comida" + Novo + "não foi encontrada no estoque.")
+    }
+
+}
+function deletar(){
+    var comida_del = inpt_del.value
+
+    div_msg.innerHTML = "Não encontrou"
+
+    while(listaComida.includes(comida_del)){
+        listaComida.splice(listaComida.indexOf(comida_del) , 1)
+        div_msg.innerHTML = "Removido com sucesso"
+    }
+}
+
+// a) Alterar Nome de Comida:
+
+// Crie dois campos de texto:
+// Um para o nome atual da comida;
+// Outro para o novo nome da comida;
+// E adicione um botão chamado "Alterar Nome".
+// Funcionalidade ao clicar no botão:
+// Verifique se o nome atual está presente na lista:
+// Se estiver, altere todas as ocorrências do nome atual para o novo nome e exiba:
+// "A comida 'nome antigo' foi alterada para 'nome novo'".
+// Se não estiver, exiba:
+// "A comida 'nome antigo' não foi encontrada no estoque."
+// b) Deletar Comida do Estoque:
+
+// Crie um campo de texto para o usuário digitar o nome da comida que deseja deletar e um botão chamado "Remover Comida".
+// Funcionalidade ao clicar no botão:
+// Verifique se a comida existe na lista.
+// Se existir, remova todas as ocorrências da comida informada e exiba:
+// "A comida 'nome da comida' foi removida do estoque."
+// Se não existir, exiba:
+// "A comida 'nome da comida' não está no estoque."
+// Essas novas funcionalidades vão garantir que o estoque do Sanji fique sempre organizado e atualizado, mesmo com a bagunça que o Luffy causa! 
+
+</script>
+
+
+
+<!-- 
+Desafio - CRUD One Piece
+Condições de conclusão
+CRUD do Sanji - Contexto
+One Piece é uma obra japonesa muito famosa pelo mundo todo, conta a história de um personagem chamado Luffy, que tem um sonho de se tornar o rei dos piratas, para isso, o personagem monta sua própria tripulação, conhecida como os "Chapéus de Palha". Nessa tripulação, cada membro possui um cargo e o personagem conhecido como Sanji é o cozinheiro do navio. Agora, Sanji precisa preparar muitas comidas para abastecer a tripulação durante suas viagens, o problema é que Luffy tem o costume de comer tudo e não deixar nada para ninguém.
+ 
+Parte 1)
+ 
+Por conta desse problema, Sanji pediu sua ajuda para desenvolver um programa onde ele possa cadastrar as comidas que ele cozinhou e saber se a quantidade é o suficiente para satisfazer o Luffy e sobrar para a tripulação, para isso:
+ 
+a) Tenha um campo "Cadastrar Estoque de Comidas" e um botão "Cadastrar";
+ 
+b) Ao clicar no botão, a comida digitada no campo deve ser adicionada a uma lista (que não aparece para o usuário);
+ 
+Obs: Não existe problema em serem registrados valores repetidos.
+ 
+c) Crie outro botão chamado "Verificar Quantidade" e ao clicar nele, deve ser feito as seguintes verificações:
+ 
+Se o número de itens na lista for abaixo de 3, exiba na tela: "Desse jeito, o Luffy devora até o navio";
+Se o número de itens na lista for entre 3 e 7, exiba na tela: "O comilão do Luffy não vai deixar sobrar nenhuma comida";
+Se o número de itens na lista for entre 8 e 10, exiba na tela: "Assim, talvez sobre um pouco para a tripulação";
+Se o número de itens na lista for acima de 10, exiba na tela: "Desse jeito vai ter comida para todo mundo e ainda consigo guardar um pouco para a senhorita Nami!".
+ 
+Parte 2)
+Agora Sanji também gostaria de otimizar seu controle de estoque, para isso ele gostaria das seguintes funcionalidades:
+ 
+a) Tenha um campo onde o usuário possa digitar o nome de uma comida e tenha um botão "Pesquisar":
+ 
+Ao clicar no botão deve ser realizada uma pesquisa na lista de comidas que foram cadastradas para saber se o item que o usuário digitou está presente na lista, se estiver exiba: "Temos a comida X e há Y unidade(s) dela";
+Caso a comida não exista exiba: "Alguém vai ter que comprar X, tá fazendo falta...".
+ 
+OBS: X representa o nome da comida e Y representa a quantidade de vezes que a comida de mesmo nome se repete na lista.
+ 
+b) Tenha um botão "Exibir Estoque":
+ 
+Ao clicar nele exiba na tela todas as comidas cadastradas no estoque e a quantidade que tem de cada comida, conforme o exemplo abaixo:
+        - Arroz de Polvo (5 unidades)
+        - Ceviche de frutos do mar (1 unidade)
+        - ...
+ 
+OBS: Note que se houver apenas uma unidade da comida, deve aparecer na exibição a palavra "unidade" no singular e se tiver mais de uma a palavra fica no plural.
+ 
+Parte 3)
+
+Sanji percebeu que, às vezes, ele digita o nome de uma comida errado ou precisa atualizar o nome de algum prato novo que criou. Além disso, ele também gostaria de remover do estoque as comidas que estragaram ou que não serão mais servidas. Para isso, ele pediu mais duas funcionalidades:
+
+a) Alterar Nome de Comida:
+
+Crie dois campos de texto:
+Um para o nome atual da comida;
+Outro para o novo nome da comida;
+E adicione um botão chamado "Alterar Nome".
+Funcionalidade ao clicar no botão:
+Verifique se o nome atual está presente na lista:
+Se estiver, altere todas as ocorrências do nome atual para o novo nome e exiba:
+"A comida 'nome antigo' foi alterada para 'nome novo'".
+Se não estiver, exiba:
+"A comida 'nome antigo' não foi encontrada no estoque."
+b) Deletar Comida do Estoque:
+
+Crie um campo de texto para o usuário digitar o nome da comida que deseja deletar e um botão chamado "Remover Comida".
+Funcionalidade ao clicar no botão:
+Verifique se a comida existe na lista.
+Se existir, remova todas as ocorrências da comida informada e exiba:
+"A comida 'nome da comida' foi removida do estoque."
+Se não existir, exiba:
+"A comida 'nome da comida' não está no estoque."
+Essas novas funcionalidades vão garantir que o estoque do Sanji fique sempre organizado e atualizado, mesmo com a bagunça que o Luffy causa! -->

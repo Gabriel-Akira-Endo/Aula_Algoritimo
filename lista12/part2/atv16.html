@@ -31,15 +31,18 @@ var msg =""
 var maior = (Number(lista[0][1]))*1.25
 var menor = (Number(lista[0][1]))*1.25
 var total = 0
-
+var caro = ""
+var barato = ""
 for( var i = 0; i< lista.length; i++){
     var preco_compra = (Number(lista[i][1])*1.25)
 
         if (preco_compra > maior) {
             maior = preco_compra;
+            caro = lista[i][0]
         }
         if (preco_compra < menor) {
             menor = preco_compra;
+            barato = lista[i][0]
         }
 
     total = total + preco_compra
@@ -51,8 +54,8 @@ for( var i = 0; i< lista.length; i++){
 
 
 div_geral.innerHTML = ` ${msg} <br><br>
-Produto mais caro:${maior} <br><br>
-Produto mais barato:${menor} <br> <br>
+Produto mais caro:${caro} <br><br>
+Produto mais barato:${barato} <br> <br>
 Soma dos preços:${total} <br> <br>
 Média de preço de venda: ${(total / lista.length).toFixed(2)} <br> <br>
 `
