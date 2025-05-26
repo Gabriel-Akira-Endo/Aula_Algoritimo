@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    Quais filmes você já viu: <input type="text" id="id_filme"><button onclick="cad()">Cadastrar</button>
+    <br>
+    <button onclick="mostrar_i()">Mostrar</button>
+    <div id="div_msg"></div>
+    <br>
+    <input type="text" placeholder="De" id="de_id"><input type="text" placeholder="Até" id="ate_id"> <button onclick="filtrar()">Filtrar filmes</button>
+    <div id="div_filtro"></div>
+</body>
+</html>
+<script>
+
+listaFilme=[]
+
+function cad(){
+    var filme = id_filme.value
+    listaFilme.push(filme)
+}
+
+function mostrar_i(){
+    msg=""
+    
+    for(var i = 0;i <listaFilme.length; i++){
+        msg +=`${listaFilme[listaFilme.length -1 -i]}<br>`
+    }
+    div_msg.innerHTML = msg
+}
+function filtrar(){
+    var msg =""
+    var de = Number(de_id.value) -1
+    var ate = Number(ate_id.value) -1
+    var listaFiltro = []
+        for(var i = de ;i <=ate ; i++){
+        listaFiltro.push(listaFilme[i])
+    }
+    for(var i = 0;i <listaFiltro.length; i++){
+        msg +=`${listaFiltro[listaFiltro.length -1 -i]}<br>`
+    }
+    div_filtro.innerHTML=msg
+}
+</script>
