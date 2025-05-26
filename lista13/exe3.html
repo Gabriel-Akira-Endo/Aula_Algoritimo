@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Mercado do seu zé</h1>
+    <br>
+    Nome do produto: <input type="text"  id="id_prod">
+    Preco do produto: <input type="text"  id="id_prec">
+    <br><button onclick="bt_inserir()">Cadastrar</button>
+    <br>
+    <button onclick="att()">atualizar estoque</button>
+    <div id="id_att"></div>
+    <select  id="id_select_aci">
+    <option value="1" >Precos acima de:</option>
+    <option value="2" >Precos abaixo de:</option>
+    </select> <input type="text" id="id_prec2"> <button onclick="bt_filtro()">filtro</button>
+    <div id="div_filtragem"></div>
+</body>
+</html>
+<script>
+    listaNome = []
+    listaPrec = []
+
+
+    function bt_inserir(){
+        var prod =  id_prod.value
+        var prec =  id_prec.value
+
+        if(prod.length >=3 && prec >=0){
+            listaNome.push(prod)
+            listaPrec.push(prec)
+        }
+        else{
+            alert("deu erro paezao")
+        }
+
+    }
+    function att(){
+        msg =""
+        var real = 0
+
+        for(var i = 0 ; i <listaNome.length ; i++){
+         msg += `${i+1}. ${listaNome[i]} - ${listaPrec[i]}<br><br>`
+            real = real + Number(listaPrec[i])
+        }
+        id_att.innerHTML = ` Você tem ${listaNome.length} produtos cadastrados em estoque:<br><br>
+                            ${msg}
+                            seu estoque vale $${real}
+        `
+
+    }
+    function bt_filtro(){
+        var msg = ""
+        var selec = id_select_aci.value
+        var prec_2 = id_prec2.value
+        if(selec == 1){
+        for(var i = 0 ; i <listaNome.length ; i++){
+            if(listaPrec[i] >= prec_2){
+                msg += `${listaNome[i]} - ${listaPrec[i]}<br><br>`
+            }
+        }
+                 div_filtragem.innerHTML = msg
+        }
+        else{
+        for(var i = 0 ; i <listaNome.length ; i++){
+            if(listaPrec[i] <= prec_2){
+                msg += `${listaNome[i]} - ${listaPrec[i]}<br><br>`
+        }
+    }
+         div_filtragem.innerHTML = msg
+        }
+   
+        }
+</script>
+
+
+
+<!-- . Registro de Produtos
+Crie um programa o qual:  
+
+a) Pergunte ao usuário o preço e o nome de um produto; 
+
+b) Ao clicar em "Cadastrar", caso o preço seja positivo e o nome contenha ao menos 3 letras, registra as informações num lugar que o usuário não vê e exibe uma mensagem de sucesso. Caso contrário, exibe uma mensagem explicativa; 
+
+c) Ao clicar em "Atualizar Estoque", deve aparecer a lista de preços e o nome dos produtos cadastrados e  um texto como este abaixo:  
+
+     Você tem AAA produtos cadastrados em estoque:
+
+     1. BBB - R$CCC 
+
+     2. BBB - R$CCC  
+
+     Seu estoque vale R$DDD 
+
+Em AAA é a quantidade de produtos cadastrados pelo usuário, BBB o nome do produto, CCC o preço do produto e DDD é a soma de todos os valores. 
+
+d) Tenha uma select com as opções "Preços acima de" e "Preços abaixo de" e um campo "Valor".
+
+e) Ao clicar no botão "Filtrar Produtos", deve exibir a lista de produtos filtrada de acordo com o valor informado no campo e a opção selecionada.
+
+OBS: caso escolha "Preços acima de" e o valor seja "20", deve exibir somente produtos cadastrados com preço acima de 20 -->
