@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>DashUsuario</title>
+    <style>
+.rt_kpis{
+position: relative;
+width: 15%;
+height: 15%;
+border: solid 2px red;
+display: flex;
+flex-direction: column;
+padding: 10px;
+border-radius: 15px;
+}
+.cima_kpi_container{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.cima_kpi_esq{
+    width: 100%;
+    padding: 5%;
+}
+.titulo_kpis{
+    font-size: 2.8vh;
+}
+#div_total_eventos{
+    font-weight: 700;
+    font-size: 4vh;
+}
+.fundo_icone{
+    position: absolute;
+    height: 30%;
+    background-color: #8686d1;
+    width: 20%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.cima_kpi_dir{
+    width: 45%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+.texto_aumento{
+    padding: 5%;
+}
+.div_geral_kpis_cima{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 3%;
+}
+    </style>
+</head>
+<body>
+    <div style="height: 100vh;">
+        <div class="div_geral_kpis_cima">
+        <div class="rt_kpis">
+            <div class="cima_kpi_container">
+                <div class="cima_kpi_esq">
+                    <div class="titulo_kpis">Total de eventos</div>
+                    <div id="div_total_eventos">80</div>
+                </div>
+                <div class="cima_kpi_dir">
+                    <div class="fundo_icone">
+                    <i class="fa fa-calendar" style="font-size: 100%;color:#3E3ECF;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="texto_aumento"><span style="color: green; font-size: 3vh; font-weight: 700;">&#x2191 8% </span> <span style="font-size: 2vh;"> desde o mês passado</span></div>
+        </div>
+        <div class="rt_kpis">
+            <div class="cima_kpi_container">
+                <div class="cima_kpi_esq">
+                    <div class="titulo_kpis">Total de eventos</div>
+                    <div id="div_total_eventos">80</div>
+                </div>
+                <div class="cima_kpi_dir">
+                    <div class="fundo_icone">
+                    <i class="fa fa-calendar" style="font-size: 100%;color:#3E3ECF;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="texto_aumento"><span style="color: green; font-size: 3vh; font-weight: 700;">&#x2191 8% </span> <span style="font-size: 2vh;"> desde o mês passado</span></div>
+        </div>
+        <div class="rt_kpis">
+            <div class="cima_kpi_container">
+                <div class="cima_kpi_esq">
+                    <div class="titulo_kpis">Total de eventos</div>
+                    <div id="div_total_eventos">80</div>
+                </div>
+                <div class="cima_kpi_dir">
+                    <div class="fundo_icone">
+                    <i class="fa fa-calendar" style="font-size: 100%;color:#3E3ECF;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="texto_aumento"><span style="color: green; font-size: 3vh; font-weight: 700;">&#x2191 8% </span> <span style="font-size: 2vh;"> desde o mês passado</span></div>
+        </div>
+        <div class="rt_kpis">
+            <div class="cima_kpi_container">
+                <div class="cima_kpi_esq">
+                    <div class="titulo_kpis">Total de eventos</div>
+                    <div id="div_total_eventos">80</div>
+                </div>
+                <div class="cima_kpi_dir">
+                    <div class="fundo_icone">
+                    <i class="fa fa-calendar" style="font-size: 100%;color:#3E3ECF;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="texto_aumento"><span style="color: green; font-size: 3vh; font-weight: 700;">&#x2191 8% </span> <span style="font-size: 2vh;"> desde o mês passado</span></div>
+        </div>
+        <div class="rt_kpis">
+            <div class="cima_kpi_container">
+                <div class="cima_kpi_esq">
+                    <div class="titulo_kpis">Total de eventos</div>
+                    <div id="div_total_eventos">80</div>
+                </div>
+                <div class="cima_kpi_dir">
+                    <div class="fundo_icone">
+                    <i class="fa fa-calendar" style="font-size: 100%;color:#3E3ECF;"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="texto_aumento"><span style="color: green; font-size: 3vh; font-weight: 700;">&#x2191 8% </span> <span style="font-size: 2vh;"> desde o mês passado</span></div>
+        </div>
+</div>
+
+    <div style="display: flex; flex-direction: row;justify-content: space-evenly;width: 100%;">
+    <div style="width: 40%;">
+        <canvas id="grafico_temp_linha"></canvas>
+    </div>
+    <div class="div_eventos_postados">
+    
+</div>
+
+    </div>
+</body>
+<script>
+    const linha = document.getElementById(`grafico_temp_linha`)
+    const barra = document.getElementById(`grafico_barra_linha`)
+
+    new Chart(linha, {
+        type: 'line',
+        data: {
+            labels: [ '12:00', '13:00', '14:00', '15:00', '16:00', '17:00'],
+            datasets: [{
+                label: 'temperatura',
+                data: [30, 29, 28, 25, 22, 23],
+                borderWidth: 1
+            },{
+                label: 'temperatura',
+                data: [40, 29, 28, 25, 22, 23],
+                borderWidth: 1
+            },{
+                label: 'temperatura',
+                data: [80, 82, 80, 85, 80, 83],
+                borderWidth: 1
+            }]}})
+
+</script>
+
+</html>
