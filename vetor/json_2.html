@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JSON (Notação para Objetos em JavaScript)</h1>
+
+    <label>
+      <span>Nome do Responsável:</span>
+      <input id="input_responsavel" type="text" />
+    </label>
+    <br />
+
+    <label>
+      <span>Nome:</span>
+      <input id="input_nome" type="text" />
+    </label>
+    <br />
+
+    <label for="input_idade">Idade:</label>
+    <input id="input_idade" type="text" />
+
+    <br />
+
+    <button onclick="cumprimentar()">Cumprimentar</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function cumprimentar() {
+    /*
+      JSON - JavaScript Object Notation (Notação para Objetos JavaScript)
+
+      É uma estrutura de dados que serve para armazenar diversos valores dentro de uma única referência (como um vetor).
+      A diferença de um Objeto JSON para um Vetor, são: 
+        - No Vetor, as informações são categorizadas através dos índices (posições da informação dentro da lista) e podem ser acessadas usando esse índice
+          EX vetor: 
+            const lista_numeros = [10, 20, 30]; // cria uma lista com os valores '10, 20 e 30' respectivamente nos índices '0, 1 e 2'.
+            console.log(lista_numeros[1]); // exibe o valor '20' no console, pois é o elemento que está no índice [1]
+
+        - No Objeto JSON, as informações são categorizadas por um conjunto de 'chave: valor', onde a chave é um identificador para aquela informação.
+        - Normalmente, utilizamos um JSON quando queremos armazenar muitas informações em um mesmo contexto, como agrupar "nome e idade" para um objeto de "usuário"
+          EX json 1: 
+            const json_usuario = {
+              idade: 10,
+              nome: 'Joãozinho'
+            }
+
+            console.log( json_usuario.idade ); // exibe "10" no console, que é o VALOR da CHAVE "idade", dentro do objeto "json_usuario"
+            console.log( json_usuario.nome );  // exibe "Joãozinho" no console, que é o VALOR da CHAVE "nome", dentro do objeto "json_usuario"
+            
+              - O JSON possui uma característica adicional, onde podemos acessar as suas informações como fazemos nos vetores, utilizando os colchetes []
+              EX json 2: 
+                console.log( json_usuario['idade'] ); // exibe "10" no console, que é o VALOR da CHAVE "idade", dentro do objeto "json_usuario"
+                console.log( json_usuario['nome'] ); // exibe "Joãozinho" no console, que é o VALOR da CHAVE "nome", dentro do objeto "json_usuario"
+                // acessa a informação 'idade' como se fosse um índice de um vetor.
+                // isso só funciona com JSON! (afinal, não conseguimos dar uma identificação uma informação de um vetor, apenas de um JSON)
+    */
+
+    var usuario = {
+      nome: input_nome.value, // dentro do objeto "usuario", cria a informação "nome" que possui o valor capturado na input_nome
+      idade: input_idade.value,  // dentro do objeto "usuario", cria a informação "idade" que possui o valor capturado na input_idade
+      responsavel: input_responsavel.value,  // dentro do objeto "usuario", cria a informação "responsavel" que possui o valor capturado na input_responsavel
+    };
+
+
+    // div_mensagem.innerHTML = usuario; 
+    // ao descomentar a linha acima, exibe [object Object], pois o HTML não consegue renderizar um JSON
+    // para exibir seu contéudo, devemos acessar cada informação separadamente ou transformar o JSON em texto para exibí-lo
+    
+    // div_mensagem.innerHTML = JSON.stringify(usuario); 
+
+
+    div_mensagem.innerHTML = `
+      Olá usuário ${usuario.nome}! <br>
+      Você tem ${usuario.idade} anos de idade! <br>
+      Nome do Responsável: ${usuario.responsavel} <br><br>
+      JSON completo: ${JSON.stringify(usuario)}
+    `;
+  }
+</script>

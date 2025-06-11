@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JSON (Notação para Objetos em JavaScript)</h1>
+
+    <label>
+      <span>Nome do Responsável:</span>
+      <input id="input_responsavel" type="text" />
+    </label>
+    <br />
+
+    <label>
+      <span>Nome:</span>
+      <input id="input_nome" type="text" />
+    </label>
+    <br />
+
+    <label for="input_idade">Idade:</label>
+    <input id="input_idade" type="text" />
+
+    <br />
+;
+    <button onclick="cumprimentar()">Cumprimentar</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function cumprimentar() {
+    // inicia um objeto apenas com nome e idade que estão VAZIOS (não indefinidos!)
+    var pessoa = {
+      nome: "",
+      idade: "",
+    };
+
+    var nome = input_nome.value;
+    var idade = input_idade.value;
+    var nome_responsavel = input_responsavel.value;
+
+    pessoa.nome = nome; // atualiza a informação "nome" do objeto "pessoa" para o valor da variável "nome"
+    pessoa.idade = idade; // atualiza a informação "idade" do objeto "pessoa" para o valor da variável "idade"
+    pessoa.nome_responsavel = nome_responsavel; // atualiza a informação "responsavel" do objeto "pessoa" para o valor da variável "responsavel"
+
+    pessoa.cor_cabelo = "Castanho"; // cria o atributo "cor_cabelo" com o valor "Castanho"
+    // É como se declarasse o atributo `cor_cabelo: 'Castanho'` ao criar o JSON
+
+    const copia_pessoa = { ...pessoa }; // SPREAD OPERATOR para criar um novo objeto utilizando todas as informações da referência "pessoa";
+    
+    delete pessoa.cor_cabelo;
+    
+    console.log( copia_pessoa );  // exibe a cópia, que não foi removido o atributo "cor_cabelo"
+    console.log( pessoa ); // exibe a pessoa original, que removemos o atributo "cor_cabelo"
+
+    div_mensagem.innerHTML = `
+        Olá usuário ${pessoa.nome}! <br>
+        Você tem ${pessoa.idade} anos de idade! <br>
+        Nome do Responsável: ${pessoa.nome_responsavel} 
+      `;
+  }
+</script>

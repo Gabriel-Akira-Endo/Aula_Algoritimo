@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body style="background-color: #e2e2e2">
+    <h1>JSON (Notação para Objetos em JavaScript)</h1>
+
+    <label>
+      <span>Titulo:</span>
+      <input id="input_nome" type="text" />
+    </label>
+    <br />
+    <br />
+
+    <label for="input_Banda"> Nome da banda:</label>
+    <input id="input_Banda" type="text" />
+
+    <br />
+    <br />
+    <label for="input_duracao">Duração da musica em minutos:</label>
+    <input id="input_duracao" type="text" />
+
+    <br />
+    <br />
+    <label for="input_anoLancamento">Ano de lançamento da musica:</label>
+    <input id="input_anoLancamento" type="text" />
+
+    <br />
+    <br />
+    <label for="input_avaliacoes">Avaliações da musica de 1 a 5 estrelas:</label>
+    <input id="input_avaliacoes" type="text" />
+
+    <br />
+    <br />
+    <label for="input_integrantes"> Nome dos integrantes (separados por vírgula):</label>
+    <input id="input_integrantes" type="text" />
+
+    <br />
+    <br />
+
+    <button onclick="cadastrar()">Cadastrar</button> <br> <br>
+    <button onclick="listar()">Listar</button>
+    <br><br>
+    Remover musica do titulo: <input type="text" id="nomeMusica"><button onclick="removerMusica()">Remover </button> 
+    
+    <br><br>
+    
+    Atualizar ano da musica do titulo: <input type="text" id="nomeMusicaAtt">  Para o ano de: <input type="text" id="anoAtt"><button onclick="atualizarAno()">Atualizar </button>
+
+    <br><br>
+
+    Calcular Média da musica do titulo: <input type="text" id="nomeMusicaMed"><button onclick="calcMedia()">Calcular </button>
+
+    <br><br>
+    Qual a banda do Integrante: <input type="text" id="NmIntegrante"><button onclick="localIntegrante()">Calcular </button>
+    <div id="div_banda_integrante"></div>
+    <div style="display: flex; gap: 2rem" id="div_mensagem"></div>
+    <div id="div_med"></div>
+    
+    
+
+
+  </body>
+</html>
+<script>
+  const lista_spotiPobri = [];
+
+  function cadastrar() {
+    let mensagem = "";
+    var nome = input_nome.value
+var Banda = input_Banda.value
+var duracao = input_duracao.value
+var anoLancamento = input_anoLancamento.value
+const Nota = (input_avaliacoes.value).split(",");
+for (let i = 0; i < Nota.length; i++) {
+    Nota[i] = Nota[i].trim();
+}
+const nomesDigitados = input_integrantes.value;
+const integrantes = nomesDigitados.split(",");
+for (let i = 0; i < integrantes.length; i++) {
+    integrantes[i] = integrantes[i].trim();
+}
+
+    const musica = {
+        nome,
+Banda,
+duracao,
+anoLancamento,
+Nota,
+integrantes
+    };
+
+    lista_spotiPobri.push(musica); // adiciona o JSON inteiro na lista
+    // [{nome: "Fulano", idade: 25}, {nome: 'Ciclano', idade: 20}]
+  }
+    function listar(){
+        var mensagem = ""
+    for (let i = 0; i < lista_spotiPobri.length; i++) {
+      const listaMusica = lista_spotiPobri[i];
+
+      mensagem += `
+        <div>
+          <b>nome:${listaMusica.nome}<br><br>
+          Banda: ${listaMusica.Banda} <br>
+          Duração da musica: ${listaMusica.duracao} <br>
+          Ano de lancamento: ${listaMusica.anoLancamento} <br>
+          Nota de avaliações da musica: ${listaMusica.Nota} <br>
+          Integrante(s) da Banda${listaMusica.Banda}: ${listaMusica.integrantes} <br>
+          <br> 
+        </div>
+      `;
+    }
+
+    div_mensagem.innerHTML = mensagem;
+  }
+
+   function removerMusica(){
+    const musicaRm = nomeMusica.value
+
+    for (let i = 0; i < lista_spotiPobri.length; i++) {
+      const musica = lista_spotiPobri[i];
+      if(musica.nome == musicaRm){
+          lista_spotiPobri.splice(i, 1)
+      }
+
+   }
+   }
+
+   function atualizarAno(){
+ const mscAtt = nomeMusicaAtt.value
+const anoAtualizar = anoAtt.value
+
+    for (let i = 0; i < lista_spotiPobri.length; i++) {
+      const musica = lista_spotiPobri[i];
+      if(musica.nome == mscAtt){
+          musica.anoLancamento = anoAtualizar
+      }
+
+   }
+   }
+
+
+   function calcMedia(){
+ const mscMed = nomeMusicaMed.value
+
+ var media = 0
+ 
+ for (let i = 0; i < lista_spotiPobri.length; i++) {
+     const musica = lista_spotiPobri[i];
+     if(musica.nome == mscMed){
+         var num = 0
+         for(var e = 0 ; e <(musica.Nota).length; e++){
+             var numAdd = Number(musica.Nota[e])
+             num = num + numAdd
+            }
+            media = (num/(musica.Nota).length).toFixed(1)
+        }
+        
+    }
+    div_med.innerHTML = media
+   }
+
+
+   function localIntegrante(){
+ const nomeIntegrante = NmIntegrante.value
+
+
+ msg = ""
+ for (let i = 0; i < lista_spotiPobri.length; i++) {
+     const musica = lista_spotiPobri[i];
+     if(musica.integrantes.includes(nomeIntegrante)){
+        msg = musica.Banda
+        }
+        
+    }
+    div_banda_integrante.innerHTML = ` O integrante:${nomeIntegrante} está na banda ${msg}`
+   }
+
+// </script>
+<!-- Você foi contratado para desenvolver um sistema de gerenciamento de uma playlist de músicas, que será usado por um aplicativo de streaming. O sistema deve permitir a adição, atualização e consulta de músicas, com foco em avaliações e nos integrantes da banda.
+
+Cada música deve conter as seguintes características:
+
+titulo: o nome da música
+banda: o nome da banda
+duracao: duração da música em minutos
+anoLancamento: o ano de lançamento da música
+avaliacoes: lista de avaliações da música, de 1 a 5
+integrantes: nomes dos integrantes da banda -->

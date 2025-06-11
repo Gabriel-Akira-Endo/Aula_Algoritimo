@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body style="background-color: #e2e2e2">
+    <h1>JSON (Notação para Objetos em JavaScript)</h1>
+
+    <label>
+      <span>Nome:</span>
+      <input id="input_nome" type="text" />
+    </label>
+    <br />
+
+    <label for="input_idade">Idade:</label>
+    <input id="input_idade" type="text" />
+
+    <br />
+
+    <button onclick="cadastrar()">Cadastrar</button>
+    <div style="display: flex; gap: 2rem" id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  const lista_pessoas = [];
+
+  function cadastrar() {
+    let mensagem = "";
+    const nome = input_nome.value;
+    const idade = input_idade.value;
+
+    const pessoa = {
+      nome, // cria o atributo "nome" no objeto "pessoa" utilizando o valor da variável "nome" 
+      idade, // cria o atributo "idade" no objeto "pessoa" utilizando o valor da variável "idade" 
+    };
+
+    lista_pessoas.push(pessoa); // adiciona o JSON inteiro na lista
+    // [{nome: "Fulano", idade: 25}, {nome: 'Ciclano', idade: 20}]
+
+    for (let i = 0; i < lista_pessoas.length; i++) {
+      const pessoa = lista_pessoas[i];
+
+      mensagem += `
+        <div style="padding: 1rem; border-radius: 16px; background-color: white;">
+          <b> Pessoa: ${i + 1} </b><br><br>
+          Nome: ${pessoa.nome} <br>
+          Idade: ${pessoa.idade} <br><br> 
+        </div>
+      `;
+    }
+
+    div_mensagem.innerHTML = mensagem;
+  }
+</script>

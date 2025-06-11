@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>JSON (Notação para Objetos em JavaScript)</h1>
+
+    <label>
+      <span>Nome do Responsável:</span>
+      <input id="input_responsavel" type="text" />
+    </label>
+    <br />
+
+    <label>
+      <span>Nome:</span>
+      <input id="input_nome" type="text" />
+    </label>
+    <br />
+
+    <label for="input_idade">Idade:</label>
+    <input id="input_idade" type="text" />
+
+    <br />
+
+    <button onclick="cumprimentar()">Cumprimentar</button>
+    <div id="div_mensagem"></div>
+  </body>
+</html>
+<script>
+  function cumprimentar() {
+    var nome = input_nome.value;
+    var idade = input_idade.value;
+    var nome_responsavel = input_responsavel.value;
+
+    // acima, temos informações pertencentes ao mesmo contexto, pois nome e idade pertencem ao "usuário".
+
+    div_mensagem.innerHTML = `
+      Olá usuário ${nome}! <br>
+      Você tem ${idade} anos de idade! <br>
+      Nome do Responsável: ${nome_responsavel} 
+   `;
+  }
+</script>
